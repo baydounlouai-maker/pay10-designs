@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Pay10 homepage concepts</title>
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f5f7;
+    --panel: #ffffff;
+    --ink: #16181d;
+    --muted: #5d6470;
+    --line: #dfe2e7;
+    --accent: #ed1c24;
+    --focus: #1d5fd1;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121317; --panel: #1b1d22; --ink: #eceef2; --muted: #a2a8b3; --line: #2c2f36; --focus: #7aa7ff;
+    }
+  }
+  :root[data-theme="dark"] { --bg: #121317; --panel: #1b1d22; --ink: #eceef2; --muted: #a2a8b3; --line: #2c2f36; --focus: #7aa7ff; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 Inter, system-ui, sans-serif; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 0 16px; }
+
+  header.top { padding: 28px 0 8px; }
+  header.top .row { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand img { height: 34px; width: auto; }
+  h1 { font-size: 22px; margin: 0; letter-spacing: -0.01em; }
+  .note { margin: 10px 0 0; color: var(--muted); max-width: 70ch; }
+  .notice { display: inline-block; margin-top: 12px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; color: var(--muted); background: var(--panel); }
+
+  /* Concept picker */
+  .picker { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; margin: 22px 0 18px; }
+  .card { display: block; text-align: left; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 0; overflow: hidden; cursor: pointer; color: inherit; font: inherit; transition: border-color .15s; }
+  .card:hover { border-color: var(--muted); }
+  .card[aria-current="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .card img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-bottom: 1px solid var(--line); }
+  .card .meta { display: block; padding: 10px 12px 12px; }
+  .card .name { display: block; }
+  .card .name { font-weight: 600; }
+  .card .num { color: var(--muted); font-weight: 500; margin-right: 6px; }
+  .card .line { color: var(--muted); font-size: 13px; margin-top: 2px; }
+  @media (max-width: 1100px) { .picker { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (max-width: 640px) { .picker { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+  /* Viewer */
+  .viewer { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 16px; padding-bottom: 32px; }
+  @media (max-width: 1100px) { .viewer { grid-template-columns: 1fr; } }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .toolbar h2 { margin: 0; font-size: 18px; }
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--panel); }
+  .seg button { border: 0; background: transparent; color: var(--ink); font: inherit; font-size: 13px; padding: 7px 12px; cursor: pointer; }
+  .seg button + button { border-left: 1px solid var(--line); }
+  .seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .open { font-size: 13px; padding: 7px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); text-decoration: none; }
+  .stage { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px; display: flex; justify-content: center; }
+  .frame { width: 100%; max-width: 100%; height: 78vh; border: 1px solid var(--line); border-radius: 6px; background: #fff; transition: max-width .2s; }
+  aside.notes { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; align-self: start; position: sticky; top: 16px; }
+  aside.notes h3 { margin: 0 0 6px; font-size: 15px; }
+  aside.notes .body { color: var(--muted); font-size: 14px; }
+  aside.notes .body h1, aside.notes .body h2, aside.notes .body h3 { color: var(--ink); font-size: 14px; margin: 14px 0 4px; }
+  aside.notes .body p { margin: 0 0 10px; }
+  aside.notes .body ul { margin: 0 0 10px; padding-left: 18px; }
+  aside.notes .body code { font-size: 12px; }
+</style>
+</head>
+<body>
+<header class="top wrap">
+  <div class="row">
+    <div class="brand">
+      <img src="assets/logo.png" alt="Pay10">
+      <h1>Homepage concepts</h1>
+    </div>
+  </div>
+  <p class="note">Five new directions for the pay10.com homepage, plus the current demo site for reference. Each is a complete, working page built from Pay10's real content: pick one, then try it at desktop, tablet and mobile width.</p>
+  <span class="notice">Design concepts for Pay10. Not the official website.</span>
+</header>
+
+<main class="wrap">
+  <nav class="picker" aria-label="Concepts" id="picker"></nav>
+
+  <section class="viewer">
+    <div>
+      <div class="toolbar">
+        <h2 id="title"></h2>
+        <div style="display:flex; gap:8px; flex-wrap:wrap">
+          <div class="seg" role="group" aria-label="Preview width">
+            <button type="button" data-w="100%" aria-pressed="true">Desktop</button>
+            <button type="button" data-w="834px" aria-pressed="false">Tablet</button>
+            <button type="button" data-w="390px" aria-pressed="false">Mobile</button>
+          </div>
+          <a class="open" id="open" target="_blank" rel="noopener">Open full page</a>
+        </div>
+      </div>
+      <div class="stage"><iframe class="frame" id="frame" title="Concept preview"></iframe></div>
+    </div>
+    <aside class="notes" aria-labelledby="notes-title">
+      <h3 id="notes-title">Designer's notes</h3>
+      <div class="body" id="notes">Loading…</div>
+    </aside>
+  </section>
+</main>
+
+<script>
+  const concepts = [
+    { slug: '01-rails', name: 'Rails', line: 'Pay10 as a transit network: markets are stations, products are lines.' },
+    { slug: '02-institution', name: 'Institution', line: 'Gulf private-bank gravity; the khatam star as the licence seal.' },
+    { slug: '03-poster', name: 'Poster', line: 'Three flat colour sheets that are also the page’s navigation.' },
+    { slug: '04-instrument', name: 'Instrument', line: 'The savings calculator first; one market setting drives the page.' },
+    { slug: '05-people', name: 'People', line: 'Pay10’s own film, paused at four human moments.' },
+    {
+      slug: 'current',
+      name: 'Current demo',
+      line: 'The full working demo site today, all 49 pages, captured as a snapshot.',
+      notes: '<h3>Current demo site</h3><p>A static snapshot of the working demo: Next.js with the Payload CMS, seeded with Pay10’s real content (26 pages, 7 products, 5 licensed markets, leadership, insights and legal pages).</p><p>Everything is browsable. The contact form doesn’t submit in this snapshot, and the CMS (where editors manage all of this) isn’t included.</p><p>The five concepts above are proposals for replacing its homepage.</p>',
+    },
+  ]
+
+  const picker = document.getElementById('picker')
+  const frame = document.getElementById('frame')
+  const title = document.getElementById('title')
+  const open = document.getElementById('open')
+  const notes = document.getElementById('notes')
+
+  concepts.forEach((c, i) => {
+    const b = document.createElement('button')
+    b.className = 'card'
+    b.type = 'button'
+    b.dataset.slug = c.slug
+    b.innerHTML = `<img src="gallery-thumbs/${c.slug}.jpg" alt="" loading="lazy"><span class="meta"><span class="name"><span class="num">${i + 1}</span>${c.name}</span><span class="line" style="display:block">${c.line}</span></span>`
+    b.addEventListener('click', () => { location.hash = c.slug })
+    picker.appendChild(b)
+  })
+
+  // Minimal Markdown for the notes files: headings, lists, bold, italics, code, paragraphs.
+  const escape = (s) => s.replace(/[&<>]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[ch])
+  const inline = (s) => escape(s)
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/(^|\W)\*([^*]+)\*/g, '$1<em>$2</em>')
+  const markdown = (md) => {
+    let html = '', list = false
+    for (const raw of md.split('\n')) {
+      const line = raw.trimEnd()
+      const heading = line.match(/^(#{1,3})\s+(.*)/)
+      const item = line.match(/^\s*[-*]\s+(.*)/)
+      if (item) { if (!list) { html += '<ul>'; list = true } html += `<li>${inline(item[1])}</li>`; continue }
+      if (list) { html += '</ul>'; list = false }
+      if (heading) html += `<h3>${inline(heading[2])}</h3>`
+      else if (line.trim()) html += `<p>${inline(line)}</p>`
+    }
+    return html + (list ? '</ul>' : '')
+  }
+
+  const show = () => {
+    const slug = location.hash.slice(1) || concepts[0].slug
+    const c = concepts.find((x) => x.slug === slug) ?? concepts[0]
+    document.querySelectorAll('.card').forEach((el) => el.setAttribute('aria-current', String(el.dataset.slug === c.slug)))
+    title.textContent = `${concepts.indexOf(c) + 1}. ${c.name}`
+    frame.src = `${c.slug}/`
+    open.href = `${c.slug}/`
+    notes.textContent = 'Loading…'
+    if (c.notes) { notes.innerHTML = c.notes; return }
+    fetch(`${c.slug}/notes.md`).then((r) => r.text()).then((md) => { notes.innerHTML = markdown(md) }).catch(() => { notes.textContent = 'Notes unavailable.' })
+  }
+  window.addEventListener('hashchange', show)
+  show()
+
+  document.querySelectorAll('.seg button').forEach((btn) => btn.addEventListener('click', () => {
+    document.querySelectorAll('.seg button').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)))
+    frame.style.maxWidth = btn.dataset.w
+  }))
+</script>
+</body>
+</html>

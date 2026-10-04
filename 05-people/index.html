@@ -1,0 +1,1235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pay10 Global | One platform. Every payment. Anywhere</title>
+<meta name="description" content="Pay10 Global unifies consumer, merchant, online and in-person payments on regulated infrastructure licensed across multiple markets.">
+<link rel="icon" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="../assets/hero-poster.jpg">
+<style>
+/* ---------- Tokens ---------- */
+:root{
+  --paper:#FFFFFF;       /* daylight */
+  --ink:#2A0B14;         /* wine ink: text, caption bars, footer */
+  --wine:#4A0E1E;        /* the toy shop's walls in the film */
+  --red:#ED1C24;         /* logo red, large type and marks only */
+  --red-text:#C4121B;    /* red for small text on light grounds */
+  --sun:#FDB913;         /* the "10" roundel: subtitles, primary action */
+  --rose:#D9B3BB;        /* secondary text on wine/ink */
+  --muted:#7A5560;       /* secondary text on daylight */
+  --blush:#F7EEEA;       /* quiet surface */
+  --line:rgba(42,11,20,.14);
+  --line-dark:rgba(217,179,187,.28);
+
+  --font:'Parkinsans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --t-hero:clamp(2.5rem, 5vw, 4.5rem);
+  --t-h2:clamp(2rem, 3.5vw, 3.25rem);
+  --t-h3:clamp(1.375rem, 1.9vw, 1.75rem);
+  --t-lead:clamp(1.1875rem, 1.45vw, 1.375rem);
+  --t-body:1.0625rem;
+  --t-small:.9375rem;
+  --t-micro:.8125rem;
+
+  --gut:clamp(16px, 4.4vw, 64px);
+  --max:1312px;
+  --section:clamp(80px, 10vw, 160px);
+}
+
+/* ---------- Base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:88px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:var(--t-body);line-height:1.6;font-weight:400;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+h1,h2,h3,h4,p,ol,ul,dl,dd,figure{margin:0}
+ol,ul{padding:0;list-style:none}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;box-shadow:0 0 0 6px var(--ink);border-radius:2px}
+.on-dark :focus-visible{box-shadow:none}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:16px;top:-60px;background:var(--sun);color:var(--ink);padding:10px 16px;z-index:100;font-weight:600;text-decoration:none}
+.skip:focus{top:12px}
+.wrap{width:min(100% - 2*var(--gut), var(--max));margin-inline:auto}
+
+h1,h2,h3{font-weight:600;letter-spacing:-.022em;line-height:1.06;text-wrap:balance}
+h2{font-size:var(--t-h2)}
+h3{font-size:var(--t-h3);line-height:1.18;letter-spacing:-.012em}
+.lead{font-size:var(--t-lead);line-height:1.5;max-width:40ch;text-wrap:pretty}
+p{text-wrap:pretty}
+
+/* Buttons: squared, never pills */
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:12px 22px;border-radius:3px;font-weight:600;font-size:1rem;text-decoration:none;line-height:1.2;border:2px solid transparent;cursor:pointer;transition:background-color .15s, color .15s}
+.btn--sun{background:var(--sun);color:var(--ink)}
+.btn--sun:hover{background:#FFC93D}
+.btn--line{border-color:currentColor;background:transparent}
+.btn--line:hover{background:rgba(253,185,19,.14)}
+.textlink{color:var(--red-text);font-weight:600;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;text-decoration-color:rgba(196,18,27,.35)}
+.textlink:hover{text-decoration-color:currentColor}
+.on-dark .textlink{color:var(--sun);text-decoration-color:rgba(253,185,19,.4)}
+
+/* ---------- Header ---------- */
+.site-head{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line)}
+.site-head__in{display:flex;align-items:center;gap:32px;height:76px}
+.brand{display:block;flex:none}
+.brand img{height:50px;width:auto}
+.rail{margin-inline:auto}
+.rail ul{display:flex;gap:4px}
+.rail a{position:relative;display:block;padding:10px 14px;text-decoration:none;font-weight:500;font-size:1rem;border-radius:3px;color:var(--ink)}
+.rail a:hover{background:var(--blush)}
+.rail a[aria-current="true"]::after{content:"";position:absolute;left:14px;right:14px;bottom:2px;height:3px;background:var(--red);border-radius:2px}
+.head-acts{display:flex;align-items:center;gap:12px;flex:none}
+.head-cta{min-height:44px;padding:10px 18px}
+.menu-btn{display:inline-flex;background:none;border:2px solid var(--ink);border-radius:3px;min-height:44px;padding:8px 14px;font-weight:600;cursor:pointer;align-items:center;gap:10px}
+.menu-btn:hover{background:var(--blush)}
+.site-index{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 24px 48px -24px rgba(42,11,20,.25);max-height:calc(100vh - 76px);overflow:auto}
+.site-index__in{display:grid;grid-template-columns:1.3fr repeat(6,1fr);gap:32px 24px;padding-block:36px 44px}
+.site-index h2{font-size:var(--t-small);font-weight:600;color:var(--red-text);letter-spacing:0;margin-bottom:12px}
+.site-index li + li{margin-top:6px}
+.site-index a{text-decoration:none;font-size:var(--t-small)}
+.site-index a:hover{text-decoration:underline;text-underline-offset:3px}
+.site-index__people a{font-size:1.375rem;font-weight:600;letter-spacing:-.01em}
+.site-index__people li + li{margin-top:8px}
+.menu-btn__bars{width:18px;height:12px;position:relative;display:inline-block}
+.menu-btn__bars::before,.menu-btn__bars::after{content:"";position:absolute;left:0;right:0;height:2px;background:currentColor;transition:transform .2s}
+.menu-btn__bars::before{top:1px}.menu-btn__bars::after{bottom:1px}
+.menu-btn[aria-expanded="true"] .menu-btn__bars::before{transform:translateY(4px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] .menu-btn__bars::after{transform:translateY(-5px) rotate(-45deg)}
+
+/* ---------- Hero ---------- */
+.hero{padding-top:clamp(24px,3vw,40px);padding-bottom:0}
+.hero__top{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:end}
+.hero__title{grid-area:1/1/2/13;font-size:var(--t-hero);line-height:1.02;letter-spacing:-.03em;font-weight:600}
+.hero__title span{display:block}
+.hero__title .l1{white-space:nowrap}
+.hero__sub{font-size:var(--t-lead);line-height:1.45;max-width:52ch}
+.hero__meta{display:flex;justify-content:space-between;align-items:flex-end;gap:20px 40px;margin-top:clamp(28px,3vw,40px);flex-wrap:wrap}
+.hero__licence{font-size:var(--t-small);color:var(--muted);max-width:72ch;margin-top:12px}
+
+/* The film */
+.film{margin-top:clamp(20px,2.4vw,32px);background:var(--ink);color:#fff}
+.film__screen{position:relative;aspect-ratio:2.39/1;overflow:hidden;background:#3a1a10 url(../assets/hero-poster.jpg) center/cover}
+.film__screen video{width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+.film__bar{display:grid;grid-template-columns:1fr minmax(0,auto) 1fr;align-items:center;gap:16px;padding:14px 20px 16px;position:relative}
+.film__line{grid-column:2;text-align:center;color:var(--sun);font-weight:500;font-size:clamp(1.0625rem,1.6vw,1.375rem);line-height:1.3;min-height:1.3em}
+.film__toggle{grid-column:1;justify-self:start;display:inline-flex;align-items:center;gap:10px;background:none;border:1px solid var(--line-dark);border-radius:3px;color:#fff;min-height:40px;padding:6px 14px 6px 10px;font-size:var(--t-small);font-weight:500;cursor:pointer}
+.film__toggle:hover{border-color:var(--rose)}
+.film__toggle svg{width:16px;height:16px;fill:currentColor}
+.film__time{grid-column:3;justify-self:end;font-size:var(--t-small);color:var(--rose);font-variant-numeric:tabular-nums}
+.film__progress{position:absolute;left:0;right:0;top:0;height:3px;background:rgba(255,255,255,.12)}
+.film__progress span{display:block;height:100%;width:0;background:var(--sun);transform-origin:left}
+
+/* Story index under the film */
+.index{margin-top:clamp(36px,4vw,56px)}
+.index ol{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid var(--line);padding-top:24px}
+.index a{display:grid;grid-template-columns:56px 1fr;gap:4px 16px;align-items:center;text-decoration:none;border-radius:3px}
+.index img{grid-row:1/3;width:56px;height:56px;border-radius:50%;object-fit:cover}
+.index__who{font-weight:600;font-size:1.0625rem;align-self:end;line-height:1.25}
+.index__what{font-size:var(--t-small);color:var(--muted);align-self:start;line-height:1.35}
+.index a:hover .index__who{color:var(--red-text)}
+
+/* ---------- Scenes (film stills with subtitle bars) ---------- */
+.scene{background:var(--ink);color:#fff}
+.scene__pic{position:relative;overflow:hidden;aspect-ratio:2.39/1;background:#3a1a10}
+.scene__pic img{width:100%;height:100%;object-fit:cover}
+.scene__bar{display:grid;grid-template-columns:1fr minmax(0,auto) 1fr;align-items:center;gap:16px;padding:14px 20px 16px}
+.scene__who{font-size:var(--t-micro);color:var(--rose);font-weight:500}
+.scene__line{text-align:center;color:var(--sun);font-weight:500;font-size:clamp(1.0625rem,1.5vw,1.3125rem);line-height:1.3}
+.scene__tc{justify-self:end;display:inline-flex;align-items:center;gap:8px;background:none;border:0;color:var(--rose);font-size:var(--t-micro);font-variant-numeric:tabular-nums;cursor:pointer;padding:6px 4px;border-radius:3px}
+.scene__tc svg{width:12px;height:12px;fill:currentColor}
+.scene__tc:hover{color:var(--sun)}
+.scene--tall .scene__pic{aspect-ratio:4/5}
+.scene--tall .scene__bar,.scene--compact .scene__bar{grid-template-columns:1fr auto;row-gap:2px}
+.scene--tall .scene__line,.scene--compact .scene__line{grid-column:1/-1;grid-row:1;text-align:left}
+.scene--tall .scene__who,.scene--compact .scene__who{grid-row:2}
+.scene--tall .scene__tc,.scene--compact .scene__tc{grid-row:2}
+
+/* ---------- Chapters ---------- */
+.chapter{padding-block:var(--section)}
+.hero + .chapter{padding-top:clamp(72px,8vw,120px)}
+.chapter + .chapter{padding-top:0}
+.chapter__head{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:20px;margin-top:clamp(40px,5vw,72px);align-items:end}
+.chapter__head h2{grid-column:1/8}
+.chapter__head .lead{grid-column:8/13;padding-bottom:.35rem}
+.moment{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:32px;margin-top:clamp(64px,8vw,120px);align-items:center}
+.moment__label{font-size:var(--t-small);font-weight:600;color:var(--red-text);margin-bottom:12px}
+.moment h3 + p, .moment h3 + .lead{margin-top:16px}
+.moment__copy > * + *{margin-top:16px}
+.roundel{border-radius:50%;overflow:hidden;aspect-ratio:1;background:var(--blush)}
+.roundel img{width:100%;height:100%;object-fit:cover}
+.products-line{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;padding-top:20px;border-top:1px solid var(--line);font-size:var(--t-small)}
+.products-line strong{font-weight:600}
+.products-line span{color:var(--muted)}
+
+/* Consumers */
+.c-remit .roundel{grid-column:1/6}
+.c-remit .moment__copy{grid-column:7/13}
+.c-remit h3{font-size:clamp(1.75rem,2.7vw,2.5rem);line-height:1.1}
+.steps{counter-reset:step;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px!important}
+.steps li{counter-increment:step;border-top:2px solid var(--ink);padding-top:14px;font-size:var(--t-small);line-height:1.5}
+.steps li::before{content:counter(step);display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--sun);font-weight:700;font-size:.875rem;margin-bottom:10px}
+.steps strong{display:block;font-weight:600;font-size:1rem;margin-bottom:4px}
+.c-app .moment__copy{grid-column:1/7;grid-row:1}
+.c-app .scene{grid-column:8/13;grid-row:1}
+.c-app .scene--tall .scene__pic img{object-position:30% 50%}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:20px 32px;margin-top:28px!important}
+.features dt{font-weight:600}
+.features dd{color:var(--muted);font-size:var(--t-small);line-height:1.5;margin-top:2px}
+.stores{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px!important}
+
+/* Merchants */
+.two-shot{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:24px;align-items:stretch}
+.two-shot .scene{display:flex;flex-direction:column}
+.two-shot .scene:first-child{grid-column:1/9}
+.two-shot .scene:first-child .scene__pic{aspect-ratio:16/10}
+.two-shot .scene:last-child{grid-column:9/13}
+.two-shot .scene:last-child .scene__pic{aspect-ratio:auto;flex:1;min-height:280px}
+.two-shot .scene:last-child .scene__pic img{position:absolute;inset:0;object-position:68% 50%}
+.m-counter{align-items:start}
+.m-counter .moment__copy{grid-column:1/5}
+.devices{grid-column:6/13;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.devices .roundel{background:#E9E9EA}
+.devices h4{font-size:1.25rem;font-weight:600;margin-top:16px;letter-spacing:-.01em}
+.devices p{font-size:var(--t-small);color:var(--muted);line-height:1.5;margin-top:4px}
+.m-app .photo{grid-column:1/8;aspect-ratio:3/2;overflow:hidden;background:var(--blush)}
+.m-app .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.m-app .moment__copy{grid-column:9/13}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags li{font-size:var(--t-micro);font-weight:500;padding:4px 10px;border:1px solid var(--line);border-radius:3px}
+.m-online .moment__copy{grid-column:1/6}
+.methods{grid-column:7/13;display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.methods h4{font-size:1.25rem;font-weight:600;margin-top:18px;letter-spacing:-.01em}
+.methods p{font-size:var(--t-small);color:var(--muted);margin-top:4px;line-height:1.5}
+.methods .roundel{background:transparent}
+
+/* Calculator */
+.calc{margin-top:clamp(72px,9vw,128px);background:var(--wine);color:#fff;display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding:clamp(28px,4.5vw,64px)}
+.calc__intro{grid-column:1/-1;display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:12px;margin-bottom:clamp(32px,4vw,56px);align-items:end}
+.calc__intro p{grid-column:1/7;color:var(--rose);font-size:var(--t-lead);line-height:1.45}
+.calc__intro h3{grid-column:1/9;font-size:var(--t-h2);line-height:1.06;letter-spacing:-.022em}
+.calc__form{grid-column:1/7;display:grid;gap:30px;align-content:start}
+.calc__form fieldset{border:0;padding:0;margin:0;min-width:0}
+.calc__lab{display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-weight:500;margin-bottom:12px;font-size:1rem}
+.calc__lab output{font-size:1.375rem;font-weight:600;color:var(--sun);font-variant-numeric:tabular-nums}
+.calc__lab legend{padding:0;float:left}
+.vol{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;clear:both}
+.vol label{position:relative}
+.vol input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.vol span{display:grid;place-items:center;min-height:48px;border:1px solid var(--line-dark);border-radius:3px;font-weight:500;font-variant-numeric:tabular-nums;transition:background-color .15s,border-color .15s}
+.vol input:hover + span{border-color:var(--rose)}
+.vol input:checked + span{background:var(--sun);border-color:var(--sun);color:var(--ink);font-weight:600}
+.vol input:focus-visible + span{outline:3px solid var(--sun);outline-offset:3px}
+.cur{display:flex;align-items:center;gap:12px;margin-top:14px;font-size:var(--t-small);color:var(--rose)}
+.cur select{appearance:none;background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23FDB913' stroke-width='2'/%3E%3C/svg%3E") right 12px center no-repeat;border:1px solid var(--line-dark);border-radius:3px;color:#fff;padding:8px 36px 8px 12px;min-height:40px;font-weight:600;cursor:pointer}
+.cur select option{color:var(--ink)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:28px;background:transparent;cursor:pointer;margin:0;--p:50%}
+input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:linear-gradient(to right,var(--sun) var(--p),rgba(255,255,255,.22) var(--p))}
+input[type=range]::-moz-range-track{height:4px;border-radius:2px;background:rgba(255,255,255,.22)}
+input[type=range]::-moz-range-progress{height:4px;background:var(--sun);border-radius:2px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--sun);border:3px solid var(--wine);box-shadow:0 0 0 2px var(--sun);margin-top:-10px}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--sun);border:3px solid var(--wine);box-shadow:0 0 0 2px var(--sun)}
+input[type=range]:focus-visible{outline:none;box-shadow:none}
+input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 2px var(--sun),0 0 0 6px rgba(253,185,19,.45)}
+.range-ends{display:flex;justify-content:space-between;font-size:var(--t-micro);color:var(--rose);margin-top:4px}
+.calc__note{font-size:var(--t-small);color:var(--rose);line-height:1.5;border-left:3px solid var(--sun);padding-left:14px}
+.calc__result{grid-column:8/13;display:flex;flex-direction:column;gap:18px}
+.calc__keep{font-size:1.0625rem;color:var(--rose)}
+.calc__big{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;line-height:1}
+.calc__big strong{font-size:clamp(2.5rem,4.4vw,4rem);font-weight:600;color:var(--sun);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.calc__big span{font-size:1.25rem;color:var(--rose)}
+.calc__pct{align-self:flex-start;background:rgba(253,185,19,.14);color:#fff;border-left:3px solid var(--sun);padding:8px 14px;font-weight:500;font-size:var(--t-small)}
+.calc__break{display:grid;grid-template-columns:1fr auto;border-top:1px solid var(--line-dark);font-size:var(--t-small)}
+.calc__break dt,.calc__break dd{padding:10px 0;border-bottom:1px solid var(--line-dark)}
+.calc__break dt{color:var(--rose)}
+.calc__break dd{text-align:right;font-variant-numeric:tabular-nums;font-weight:500}
+.calc__break dt:last-of-type,.calc__break dd:last-of-type{color:#fff;font-weight:600;border-bottom:0}
+.calc__per{grid-column:1/-1;font-size:var(--t-micro);color:var(--rose);padding-top:10px}
+.calc__acts{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center}
+.calc__fine{grid-column:1/-1;margin-top:clamp(28px,3vw,40px);padding-top:20px;border-top:1px solid var(--line-dark);font-size:var(--t-micro);color:var(--rose);max-width:110ch;line-height:1.55}
+
+/* Enterprises */
+.e-eco{align-items:start}
+.e-eco .scene{grid-column:1/6}
+.e-eco .scene .scene__pic img{object-position:68% 50%}
+.e-eco .moment__copy{grid-column:7/13}
+.prodlist li{padding:24px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:150px 1fr;gap:6px 24px}
+.prodlist li:last-child{border-bottom:1px solid var(--line)}
+.prodlist .who{font-size:var(--t-small);font-weight:600;color:var(--red-text);padding-top:4px}
+.prodlist h4{font-size:1.375rem;font-weight:600;line-height:1.25;letter-spacing:-.01em}
+.prodlist p{grid-column:2;font-size:var(--t-small);color:var(--muted);line-height:1.55}
+.trusted{margin-top:clamp(64px,8vw,112px);display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:center}
+.trusted h3{grid-column:1/4}
+.logos{grid-column:4/13;display:grid;grid-template-columns:repeat(6,1fr);gap:28px;align-items:center}
+.logos img{max-height:44px;width:auto;max-width:100%;margin-inline:auto;object-fit:contain}
+.logos .tall{max-height:58px}
+
+/* Partners (dusk) */
+.partners{background:var(--wine);color:#fff;padding-bottom:var(--section)}
+.partners .scene{background:var(--ink)}
+.partners .scene__pic{aspect-ratio:auto;height:clamp(300px,42vw,640px)}
+.partners .scene__pic img{object-position:50% 18%}
+.partners .scene__bar{width:min(100% - 2*var(--gut), var(--max));margin-inline:auto;padding-inline:0}
+.partners .chapter__head .lead{color:var(--rose)}
+.openfin{margin-top:clamp(64px,8vw,112px);display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:32px}
+.openfin__head{grid-column:1/5}
+.openfin__head p{color:var(--rose);margin-top:14px}
+.openfin__list{grid-column:6/13;display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.news{display:flex;flex-direction:column;gap:10px}
+.news a{text-decoration:none}
+.news__img{aspect-ratio:1430/746;overflow:hidden;background:#5d1a2a}
+.news__img img{width:100%;height:100%;object-fit:cover}
+.news h4{font-size:1.1875rem;font-weight:600;line-height:1.3;margin-top:8px}
+.news a:hover h4{text-decoration:underline;text-decoration-color:var(--sun);text-underline-offset:4px}
+.news time{font-size:var(--t-micro);color:var(--rose)}
+.news p{font-size:var(--t-small);color:var(--rose);line-height:1.5}
+.security{margin-top:clamp(64px,8vw,112px);display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:32px;align-items:center}
+.security__copy{grid-column:1/6}
+.security__copy p{color:var(--rose);margin-top:16px}
+.certs{grid-column:7/13;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.certs .roundel{background:#fff;padding:12%}
+.certs img{object-fit:contain}
+.certs figcaption{font-size:var(--t-small);font-weight:500;margin-top:12px}
+
+.mk{margin-top:clamp(56px,7vw,96px);display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:32px;align-items:start}
+.mk__intro{grid-column:1/5}
+.mk__intro p{color:var(--rose);margin-top:14px}
+.mk__tabs{margin-top:28px;display:flex;flex-direction:column;border-top:1px solid var(--line-dark)}
+.mk__tab{display:flex;justify-content:space-between;align-items:baseline;gap:16px;background:none;border:0;border-bottom:1px solid var(--line-dark);color:#fff;text-align:left;padding:16px 4px 16px 18px;cursor:pointer;position:relative}
+.mk__tab::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:4px;border-radius:2px;background:transparent}
+.mk__tab:hover{background:rgba(255,255,255,.05)}
+.mk__tab[aria-selected="true"]::before{background:var(--sun)}
+.mk__name{font-size:1.25rem;font-weight:600;letter-spacing:-.01em}
+.mk__reg{font-size:var(--t-small);color:var(--rose)}
+.mk__tab[aria-selected="true"] .mk__reg{color:var(--sun)}
+.mk__panels{grid-column:6/13;background:var(--ink);padding:clamp(24px,3.5vw,48px)}
+@media (min-width:1024px){.js .mk__panels{min-height:500px}}
+.mk__panel + .mk__panel{margin-top:40px;padding-top:40px;border-top:1px solid var(--line-dark)}
+.js .mk__panel + .mk__panel{margin-top:0;padding-top:0;border-top:0}
+.mk__panel:focus-visible{outline-offset:8px}
+.mk__title{font-size:clamp(2rem,3.4vw,3rem);font-weight:600;letter-spacing:-.025em;line-height:1.05}
+.mk__entity{color:var(--rose);font-size:var(--t-small);margin-top:6px}
+.mk__facts{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:24px 32px}
+.mk__facts dt{font-size:var(--t-micro);color:var(--rose);margin-bottom:6px}
+.mk__facts dd{font-size:var(--t-small);line-height:1.55}
+.mk__facts > div:nth-child(1){grid-column:1/-1}
+.mk__facts > div:nth-child(1) dd{font-size:1.125rem;font-weight:500}
+.mk__facts > div:nth-child(3){grid-row:span 2}
+.mk__lic{display:flex;flex-wrap:wrap;gap:8px}
+.mk__lic li{color:var(--sun);border:1px solid rgba(253,185,19,.5);padding:3px 10px;border-radius:3px;font-weight:500}
+.mk__hist li + li{margin-top:6px}
+.mk__hist b{color:var(--sun);font-weight:600;margin-right:6px}
+.mk__facts address{font-style:normal;margin-bottom:8px;color:#fff}
+.mk__facts dd .textlink{margin-right:16px;display:inline-block}
+/* People behind Pay10 */
+.people{padding-block:var(--section) 0}
+.board{margin-top:clamp(40px,5vw,64px);display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:32px}
+.board figure{grid-column:span 6}
+.board .ph{aspect-ratio:3/2;overflow:hidden;background:var(--blush)}
+.board img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.board figcaption,.team figcaption{margin-top:14px}
+.person{display:block;font-weight:600;font-size:1.25rem;letter-spacing:-.01em;line-height:1.25}
+.role{display:block;color:var(--muted);font-size:var(--t-small);line-height:1.4;margin-top:2px}
+.team{margin-top:clamp(40px,5vw,64px);display:grid;grid-template-columns:repeat(7,1fr);gap:28px 20px}
+.team .roundel{background:var(--blush)}
+.team img{object-position:50% 20%}
+.team .person{font-size:1rem}
+.team .role{font-size:var(--t-micro)}
+.people__links{margin-top:clamp(36px,4vw,56px);display:flex;flex-wrap:wrap;gap:12px 28px}
+/* Talk to us */
+.talk{padding-bottom:var(--section)}
+.talk__in{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:40px;align-items:start}
+.talk .scene{grid-column:1/7;position:sticky;top:100px}
+.talk .scene__pic{aspect-ratio:1/1}
+.talk .scene__pic img{object-position:64% 50%}
+.talk__copy{grid-column:8/13}
+.talk__copy h2{font-size:clamp(2.25rem,4.2vw,3.75rem);line-height:1.02}
+.talk__lede{font-size:var(--t-lead);margin-top:20px;line-height:1.45}
+.form{margin-top:36px;display:grid;gap:18px}
+.form h3{font-size:1.25rem}
+.field label{display:block;font-weight:500;font-size:var(--t-small);margin-bottom:6px}
+.field input,.field textarea{width:100%;border:1.5px solid rgba(42,11,20,.35);border-radius:3px;padding:12px 14px;font-size:1rem;background:#fff;min-height:48px}
+.field textarea{min-height:120px;resize:vertical}
+.field input:focus-visible,.field textarea:focus-visible{border-color:var(--ink);box-shadow:0 0 0 3px var(--sun);outline:none}
+.consent{display:grid;grid-template-columns:auto 1fr;gap:12px;font-size:var(--t-micro);color:var(--muted);line-height:1.5}
+.consent input{width:20px;height:20px;margin:1px 0 0;accent-color:var(--red-text)}
+.form__err{font-size:var(--t-small);color:var(--red-text);font-weight:500;min-height:1.2em}
+.form__note{font-size:var(--t-micro);color:var(--muted)}
+.form__alt{margin-top:28px;padding-top:20px;border-top:1px solid var(--line);font-size:var(--t-small);display:flex;flex-wrap:wrap;gap:8px 24px}
+/* Insights */
+.insights{padding-block:var(--section)}
+.insights__head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.insights__grid{margin-top:clamp(36px,4vw,56px);display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:32px}
+.post a{text-decoration:none;display:block}
+.post__img{overflow:hidden;background:var(--blush)}
+.post__img img{width:100%;height:100%;object-fit:cover}
+.post__meta{display:flex;gap:16px;font-size:var(--t-micro);color:var(--muted);margin-top:16px}
+.post__meta b{color:var(--red-text);font-weight:600}
+.post h3{margin-top:8px;font-size:1.25rem;line-height:1.3;letter-spacing:-.008em}
+.post a:hover h3{text-decoration:underline;text-decoration-color:var(--red);text-underline-offset:4px;text-decoration-thickness:2px}
+.post p{font-size:var(--t-small);color:var(--muted);margin-top:8px;line-height:1.55}
+.post--lead{grid-column:1/7}
+.post--lead .post__img{aspect-ratio:3/2}
+.post--lead h3{font-size:var(--t-h3);line-height:1.18}
+.post-side{grid-column:8/13;display:grid;gap:0;align-content:start}
+.post-side .post{border-top:1px solid var(--line);padding:20px 0}
+.post-side .post:last-child{border-bottom:1px solid var(--line)}
+.post-side .post a{display:grid;grid-template-columns:132px 1fr;gap:4px 20px;align-items:start}
+.post-side .post__img{grid-row:1/4;aspect-ratio:4/3}
+.post-side .post__meta{margin-top:0}
+.post-side h3{margin-top:2px;font-size:1.125rem}
+
+/* Footer */
+.site-foot{background:var(--ink);color:#fff;padding-top:clamp(56px,6vw,88px);padding-bottom:32px;font-size:var(--t-small)}
+.foot__top{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:40px}
+.foot__brand{grid-column:1/4}
+.foot__brand img{height:56px;width:auto}
+.foot__brand address{font-style:normal;color:var(--rose);margin-top:20px;line-height:1.55;max-width:30ch}
+.foot__brand p{margin-top:14px}
+.foot__brand a{color:#fff}
+.foot__cols{grid-column:5/13;display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
+.foot__cols h2{font-size:1rem;font-weight:600;letter-spacing:0;margin-bottom:14px;color:var(--sun)}
+.foot__cols li + li{margin-top:8px}
+.foot__cols a{text-decoration:none;color:#fff;opacity:.92}
+.foot__cols a:hover{text-decoration:underline;text-underline-offset:3px;opacity:1}
+.foot__reg{margin-top:clamp(48px,5vw,72px);padding-top:28px;border-top:1px solid var(--line-dark);display:grid;grid-template-columns:repeat(2,1fr);gap:20px 40px}
+.foot__reg h2{grid-column:1/-1;font-size:1rem;font-weight:600;letter-spacing:0}
+.foot__reg p{font-size:var(--t-micro);color:var(--rose);line-height:1.6}
+.foot__bottom{margin-top:36px;padding-top:20px;border-top:1px solid var(--line-dark);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;font-size:var(--t-micro);color:var(--rose)}
+.foot__bottom ul{display:flex;gap:20px}
+.foot__bottom a{color:var(--rose)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1180px){
+  .rail a{padding:10px 9px;font-size:.9375rem}
+  .rail a[aria-current="true"]::after{left:9px;right:9px}
+  .site-index__in{grid-template-columns:repeat(4,1fr)}
+  .site-index__people{grid-column:1/-1}
+  .site-index__people ul{display:flex;flex-wrap:wrap;gap:8px 32px}
+  .site-index__people li + li{margin-top:0}
+  .foot__brand{grid-column:1/-1}
+  .foot__cols{grid-column:1/-1}
+}
+@media (max-width:1023px){
+  .rail{display:none}
+  .head-acts{margin-left:auto}
+  .site-index__in{grid-template-columns:repeat(3,1fr)}
+  .index ol{grid-template-columns:repeat(2,1fr)}
+  .chapter__head h2,.chapter__head .lead{grid-column:1/-1}
+  .c-remit .roundel{grid-column:1/5}
+  .c-remit .moment__copy{grid-column:5/13}
+  .c-app .moment__copy{grid-column:1/7}
+  .c-app .scene{grid-column:7/13}
+  .m-counter .moment__copy,.devices{grid-column:1/-1}
+  .m-app .photo{grid-column:1/7}.m-app .moment__copy{grid-column:7/13}
+  .m-online .moment__copy,.methods{grid-column:1/-1}
+  .calc__form,.calc__result{grid-column:1/-1}
+  .calc__result{margin-top:40px;padding-top:32px;border-top:1px solid var(--line-dark)}
+  .calc__intro p,.calc__intro h3{grid-column:1/-1}
+  .e-eco .scene{grid-column:1/6}.e-eco .moment__copy{grid-column:6/13}
+  .prodlist li{grid-template-columns:1fr}
+  .prodlist p{grid-column:1}
+  .trusted h3{grid-column:1/-1;margin-bottom:28px}
+  .logos{grid-column:1/-1}
+  .openfin__head,.openfin__list,.security__copy,.certs{grid-column:1/-1}
+  .post--lead,.post-side{grid-column:1/-1}
+  .talk .scene,.talk__copy{grid-column:1/-1}
+  .talk .scene{position:static}
+  .talk .scene__pic{aspect-ratio:16/10}
+  .mk__intro,.mk__panels{grid-column:1/-1}
+  .team{grid-template-columns:repeat(4,1fr)}
+}
+@media (max-width:760px){
+  :root{--t-body:1rem}
+  .hero__title .l1{white-space:normal}
+  .hero__meta{flex-direction:column;align-items:flex-start}
+  .film{margin-inline:calc(-1*var(--gut))}
+  .film__screen{aspect-ratio:5/4}
+  .film__screen video{object-position:50% 50%}
+  .film__bar{grid-template-columns:auto 1fr;padding:12px var(--gut) 14px;row-gap:10px}
+  .film__line{grid-column:1/-1;grid-row:1;text-align:left;min-height:2.6em}
+  .film__toggle{grid-row:2}
+  .film__time{grid-row:2;grid-column:2}
+  .index ol{grid-template-columns:1fr;gap:16px}
+  .scene__bar{grid-template-columns:1fr auto;row-gap:2px;padding:12px 16px 14px}
+  .scene__line{grid-column:1/-1;grid-row:1;text-align:left}
+  .scene__who,.scene__tc{grid-row:2}
+  .scene__pic{aspect-ratio:4/3}
+  .scene--wide{margin-inline:calc(-1*var(--gut))}
+  .scene--wide .scene__bar{padding-inline:var(--gut)}
+  .two-shot .scene:first-child,.two-shot .scene:last-child{grid-column:1/-1}
+  .two-shot .scene:last-child .scene__pic{height:auto;aspect-ratio:4/3}
+  .c-remit .roundel{grid-column:2/12}
+  .c-remit .moment__copy,.c-app .moment__copy,.c-app .scene{grid-column:1/-1}
+  .c-app .scene{grid-row:auto}
+  .c-app .scene--tall .scene__pic{aspect-ratio:4/3}
+  .steps{grid-template-columns:1fr;gap:16px}
+  .steps li{display:grid;grid-template-columns:40px 1fr;column-gap:8px}
+  .steps li::before{grid-row:1/3;margin:0}
+  .features{grid-template-columns:1fr}
+  .devices{grid-template-columns:repeat(3,1fr);gap:12px}
+  .devices h4{font-size:1rem;margin-top:10px}
+  .devices p{font-size:var(--t-micro)}
+  .m-app .photo,.m-app .moment__copy{grid-column:1/-1}
+  .methods{grid-template-columns:1fr 1fr;gap:20px}
+  .methods h4{font-size:1.0625rem}
+  .calc{margin-inline:calc(-1*var(--gut));padding:32px var(--gut)}
+  .vol{grid-template-columns:repeat(3,1fr)}
+  .e-eco .scene,.e-eco .moment__copy{grid-column:1/-1}
+  .e-eco .scene--tall .scene__pic{aspect-ratio:4/3}
+  .logos{grid-template-columns:repeat(3,1fr);gap:28px 20px}
+  .partners .scene__pic{height:auto;aspect-ratio:4/3}
+  .openfin__list{grid-template-columns:1fr}
+  .certs{grid-template-columns:repeat(2,1fr);gap:28px 32px}
+  .certs .roundel{max-width:150px;margin-inline:auto}
+  .post-side .post a{grid-template-columns:96px 1fr;gap:4px 14px}
+  .talk .scene{margin-inline:calc(-1*var(--gut))}
+  .site-index__in{grid-template-columns:1fr 1fr;padding-block:24px 32px}
+  .mk__facts{grid-template-columns:1fr}
+  .mk__panels{margin-inline:calc(-1*var(--gut));padding:28px var(--gut)}
+  .board figure{grid-column:1/-1}
+  .team{grid-template-columns:repeat(3,1fr);gap:24px 14px}
+  .team .person{font-size:.875rem}
+  .head-cta{padding:10px 14px}
+  .foot__cols{grid-template-columns:1fr 1fr;row-gap:32px}
+  .foot__reg{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+}
+</style>
+<meta name="robots" content="noindex, nofollow"><script>addEventListener("load",function(){setTimeout(function(){var b=document.createElement("div");b.setAttribute("role","note");b.textContent="Design concept for Pay10. Not the official website.";b.style.cssText="position:fixed;left:12px;bottom:12px;z-index:2147483647;background:#111;color:#fff;font:500 12px/1.35 system-ui,sans-serif;padding:7px 10px;border-radius:6px;opacity:.9;pointer-events:none;max-width:calc(100vw - 24px)";document.body.appendChild(b)},400)})</script></head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head" id="top">
+  <div class="wrap site-head__in">
+    <a class="brand" href="#top" aria-label="Pay10 Global home"><img src="../assets/logo.png" alt="Pay10" width="82" height="50"></a>
+    <nav class="rail" aria-label="Stories">
+      <ul>
+        <li><a href="#consumers" data-ch="consumers">For consumers</a></li>
+        <li><a href="#merchants" data-ch="merchants">For merchants</a></li>
+        <li><a href="#enterprises" data-ch="enterprises">For enterprises</a></li>
+        <li><a href="#partners" data-ch="partners">For partners</a></li>
+      </ul>
+    </nav>
+    <div class="head-acts">
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-index"><span class="menu-btn__bars" aria-hidden="true"></span>Index</button>
+      <a class="btn btn--sun head-cta" href="#talk">Contact us</a>
+    </div>
+  </div>
+  <nav class="site-index" id="site-index" aria-label="Site index" hidden>
+    <div class="wrap site-index__in">
+      <div class="site-index__people">
+        <h2>Stories</h2>
+        <ul>
+          <li><a href="#consumers">For consumers</a></li>
+          <li><a href="#merchants">For merchants</a></li>
+          <li><a href="#enterprises">For enterprises</a></li>
+          <li><a href="#partners">For banks and partners</a></li>
+        </ul>
+      </div>
+      <div><h2>Company</h2><ul><li><a href="#people">Leadership</a></li><li><a href="#">About Us</a></li><li><a href="#">Vision &amp; Mission</a></li><li><a href="#">Careers</a></li></ul></div>
+      <div><h2>Products</h2><ul><li><a href="#">Consumer App</a></li><li><a href="#">International Transfers</a></li><li><a href="#">Merchant App</a></li><li><a href="#">Merchant Portal</a></li><li><a href="#">Payment Gateway</a></li><li><a href="#">Payment Devices</a></li><li><a href="#">Pay10 World</a></li></ul></div>
+      <div><h2>Solutions</h2><ul><li><a href="#">Small &amp; Medium Businesses</a></li><li><a href="#">Large Enterprises</a></li><li><a href="#">Digital Assets</a></li><li><a href="#">Multinational Companies</a></li></ul></div>
+      <div><h2>Platform</h2><ul><li><a href="#">Pay with Pay10</a></li><li><a href="#">Pay by Bank</a></li><li><a href="#">QR Payments</a></li><li><a href="#">Payment Links</a></li><li><a href="#">Integration Methods</a></li></ul></div>
+      <div><h2>Markets</h2><ul><li><a href="#markets">All licensed markets</a></li><li><a href="https://www.pay10.in/">Pay10 India</a></li><li><a href="https://pay10.ae/">Pay10 UAE</a></li><li><a href="https://pay10.bh/">Pay10 Bahrain</a></li><li><a href="https://pay10.ma/">Pay10 Morocco</a></li></ul></div>
+      <div><h2>Insights</h2><ul><li><a href="#insights">Latest</a></li><li><a href="#">News</a></li><li><a href="#">Events</a></li><li><a href="#">Blogs</a></li><li><a href="#">Thought Leadership</a></li></ul></div>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO: the film ============ -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="hero__top">
+      <h1 class="hero__title" id="hero-title"><span class="l1">One platform. Every payment.</span> <span>Anywhere</span></h1>
+    </div>
+
+    <figure class="film" id="film">
+      <div class="film__screen">
+        <video id="film-video" muted playsinline loop preload="metadata" poster="../assets/hero-poster.jpg" aria-describedby="film-desc">
+          <source src="../assets/hero.mp4" type="video/mp4">
+        </video>
+      </div>
+      <figcaption class="film__bar">
+        <div class="film__progress" aria-hidden="true"><span id="film-progress"></span></div>
+        <button class="film__toggle" id="film-toggle" type="button" aria-controls="film-video">
+          <svg viewBox="0 0 16 16" aria-hidden="true" id="film-icon"><path d="M4 2h3v12H4zM9 2h3v12H9z"/></svg><span id="film-toggle-label">Pause film</span>
+        </button>
+        <p class="film__line" id="film-line" aria-hidden="true">Golden hour over Dubai.</p>
+        <span class="film__time" aria-hidden="true"><span id="film-now">0:00</span> / 0:15</span>
+        <span class="sr-only" id="film-desc">Pay10's 15-second brand film, without sound. Golden hour over Dubai. Two children watch the city from a window. In an office, a partnership is signed and sealed with a handshake. Next door in a toy shop, a boy picks a teddy bear, and his family pays at the counter by scanning a QR code on a Pay10 device: AED 878.00, then a thank-you screen.</span>
+      </figcaption>
+    </figure>
+
+    <div class="hero__meta">
+      <div>
+        <p class="hero__sub">Where most fintechs specialise in one thing, Pay10 unifies them all: consumer, merchant, online, and in-person payments, on regulated infrastructure licensed across multiple markets.</p>
+        <p class="hero__licence">Licensed by the Reserve Bank of India, the Central Bank of the UAE, the Central Bank of Bahrain, Bank Al-Maghrib and Magyar Nemzeti Bank.</p>
+      </div>
+      <a class="btn btn--sun" href="#talk">Get in touch</a>
+    </div>
+
+    <nav class="index" aria-label="Stories on this page">
+      <ol>
+        <li><a href="#consumers"><img src="frames/family-window-800.webp" alt="" width="56" height="56" decoding="async"><span class="index__who">For consumers</span><span class="index__what">Pay, send, receive and remit</span></a></li>
+        <li><a href="#merchants"><img src="frames/counter-800.webp" alt="" width="56" height="56" decoding="async"><span class="index__who">For merchants</span><span class="index__what">More ways to get paid</span></a></li>
+        <li><a href="#enterprises"><img src="frames/handshake-800.webp" alt="" width="56" height="56" decoding="async"><span class="index__who">For enterprises</span><span class="index__what">Payments that scale with you</span></a></li>
+        <li><a href="#partners"><img src="frames/skyline-800.webp" alt="" width="56" height="56" decoding="async"><span class="index__who">For banks and partners</span><span class="index__what">Licensed across multiple markets</span></a></li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- ============ 1. CONSUMERS ============ -->
+<section class="chapter" id="consumers" aria-labelledby="consumers-h">
+  <div class="wrap">
+    <figure class="scene scene--wide">
+      <div class="scene__pic"><img src="frames/family-window-1600.webp" srcset="frames/family-window-800.webp 800w, frames/family-window-1600.webp 1600w" sizes="(min-width:1440px) 1312px, 100vw" alt="Two children look out of a window at the Dubai skyline, smiling." width="1600" height="900" loading="lazy" decoding="async" style="object-position:50% 62%"></div>
+      <figcaption class="scene__bar"><span class="scene__who">For consumers</span><span class="scene__line">Two kids watch the city go by.</span><button class="scene__tc" type="button" data-t="2.05" aria-label="Play the film from 0:02"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z"/></svg>0:02</button></figcaption>
+    </figure>
+
+    <div class="chapter__head">
+      <h2 id="consumers-h">Built for everyday life, at home and across borders</h2>
+      <p class="lead">Pay, send, receive, and remit, with your balance and bills in one place.</p>
+    </div>
+
+    <div class="moment c-remit">
+      <div class="roundel"><img src="../assets/method-pay-with-pay10.webp" alt="A hand holding a phone with the Pay10 app open." width="2000" height="2000" loading="lazy" decoding="async"></div>
+      <div class="moment__copy">
+        <p class="moment__label">International Transfers</p>
+        <h3>Money across the world, as simple as across the street.</h3>
+        <p>For millions, supporting family abroad is a monthly commitment. It shouldn’t come with queues, unclear rates, and hidden fees. Pay10 makes it simple: send from your phone, see what arrives before you confirm, and know it’s on its way.</p>
+        <ol class="steps" aria-label="Send money internationally in three steps">
+          <li><strong>Select your recipient</strong>Choose a beneficiary or add a new one, then enter the amount.</li>
+          <li><strong>Review before you send</strong>See the exchange rate, the fee, and exactly what your recipient will receive.</li>
+          <li><strong>Transfer and track</strong>Authorise securely and follow every stage through to delivery.</li>
+        </ol>
+        <p class="products-line"><strong>Send from</strong> <span>Pay10 India, Pay10 UAE, Pay10 Bahrain and Pay10 Morocco</span> <a class="textlink" href="#">About International Transfers</a></p>
+      </div>
+    </div>
+
+    <div class="moment c-app">
+      <div class="moment__copy">
+        <p class="moment__label">Consumer App</p>
+        <h3>Everyday money, simplified</h3>
+        <p>From everyday payments to international transfers, manage everything in one seamless experience.</p>
+        <dl class="features">
+          <div><dt>Pay anyone, instantly</dt><dd>Real-time transfers using a mobile number.</dd></div>
+          <div><dt>QR payments made simple</dt><dd>Fast and secure payments with a single scan.</dd></div>
+          <div><dt>Seamless bank transfers</dt><dd>Move money across bank accounts effortlessly.</dd></div>
+          <div><dt>Smart bill management</dt><dd>Pay your bills quickly and easily.</dd></div>
+        </dl>
+        <div class="stores">
+          <a class="btn btn--line" href="#">Get the Pay10 UAE app</a>
+          <a class="btn btn--line" href="#">Get the Pay10 Bahrain app</a>
+        </div>
+      </div>
+      <figure class="scene scene--tall">
+        <div class="scene__pic"><img src="frames/couple-phone-1600.webp" srcset="frames/couple-phone-800.webp 800w, frames/couple-phone-1600.webp 1600w" sizes="(min-width:1024px) 520px, 100vw" alt="A woman pays from her phone in a shop, a man beside her." width="1600" height="733" loading="lazy" decoding="async"></div>
+        <figcaption class="scene__bar"><span class="scene__line">Paid from her phone.</span><span class="scene__who">For consumers</span><button class="scene__tc" type="button" data-t="12.7" aria-label="Play the film from 0:12"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z"/></svg>0:12</button></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. MERCHANTS ============ -->
+<section class="chapter" id="merchants" aria-labelledby="merchants-h">
+  <div class="wrap">
+    <div class="two-shot">
+      <figure class="scene">
+        <div class="scene__pic"><img src="frames/counter-1600.webp" srcset="frames/counter-800.webp 800w, frames/counter-1600.webp 1600w" sizes="(min-width:1024px) 860px, 100vw" alt="A family waits at a toy shop counter while the cashier prepares the payment." width="1600" height="900" loading="lazy" decoding="async" style="object-position:50% 60%"></div>
+        <figcaption class="scene__bar"><span class="scene__who">For merchants</span><span class="scene__line">At the counter.</span><button class="scene__tc" type="button" data-t="9.75" aria-label="Play the film from 0:09"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z"/></svg>0:09</button></figcaption>
+      </figure>
+      <figure class="scene scene--compact">
+        <div class="scene__pic"><img src="frames/scan-thanks-1600.webp" srcset="frames/scan-thanks-800.webp 800w, frames/scan-thanks-1600.webp 1600w" sizes="(min-width:1024px) 420px, 100vw" alt="A phone shows a thank-you screen after scanning the QR code on a Pay10 device." width="1600" height="900" loading="lazy" decoding="async" class="scan-img"></div>
+        <figcaption class="scene__bar"><span class="scene__line">One scan. Thank you!</span><span class="scene__who">For merchants</span><button class="scene__tc" type="button" data-t="10.85" aria-label="Play the film from 0:10"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z"/></svg>0:10</button></figcaption>
+      </figure>
+    </div>
+
+    <div class="chapter__head">
+      <h2 id="merchants-h">More ways for your business to get paid</h2>
+      <p class="lead">Your Pay10 device generates a QR code for the exact amount, the customer scans, and it’s done. Nothing to swipe, insert, or count.</p>
+    </div>
+
+    <div class="moment m-counter">
+      <div class="moment__copy">
+        <p class="moment__label">Payment Devices</p>
+        <h3>In-person payments, fully managed</h3>
+        <p>Accept in-person payments by dynamic QR across our device range, simple to register and manage, from retail counters to restaurants and kiosks.</p>
+      </div>
+      <ul class="devices">
+        <li><div class="roundel"><img src="../assets/device-pos10.jpg" alt="POS10 payment device showing a QR code." width="2000" height="2000" loading="lazy" decoding="async"></div><h4>POS10</h4><p>Smart, simple, and secure QR payments for every counter.</p></li>
+        <li><div class="roundel"><img src="../assets/device-p5.jpg" alt="P5 countertop payment device." width="2000" height="2000" loading="lazy" decoding="async"></div><h4>P5</h4><p>Elegant design meets advanced payment capability.</p></li>
+        <li><div class="roundel"><img src="../assets/device-p10.jpg" alt="P10 handheld payment device." width="2000" height="2000" loading="lazy" decoding="async"></div><h4>P10</h4><p>Rugged mobility for payments on the go.</p></li>
+      </ul>
+    </div>
+
+    <div class="moment m-app">
+      <div class="photo"><img src="../assets/vision-our-mission.jpg" alt="A shopkeeper holds a Pay10 device while a customer scans it with a phone." width="1536" height="1024" loading="lazy" decoding="async"></div>
+      <div class="moment__copy">
+        <p class="moment__label">Merchant App</p>
+        <h3>Your whole business, run from your phone</h3>
+        <p>Onboard, accept by dynamic QR, manage devices and refunds, track balances, and withdraw to your bank, with performance analytics.</p>
+        <ul class="tags" aria-label="Where it works"><li>At the counter</li><li>On the go</li><li>Back office</li></ul>
+      </div>
+    </div>
+
+    <div class="moment m-online">
+      <div class="moment__copy">
+        <p class="moment__label">Payment Gateway</p>
+        <h3>Get paid online</h3>
+        <p>Accept across cards, bank payments, and alternative methods, with Pay with Pay10 built into your checkout. Go live with the model that fits your stack: hosted, merchant-hosted, or server-to-server.</p>
+      </div>
+      <ul class="methods">
+        <li><div class="roundel"><img src="../assets/method-qr.webp" alt="Hands on a laptop showing a Pay10 QR checkout." width="1600" height="1600" loading="lazy" decoding="async"></div><h4>Pay with Pay10</h4><p>Accept with Pay10 wherever you sell. Online, in-store, in seconds.</p></li>
+        <li><div class="roundel"><img src="../assets/method-pay-by-bank.webp" alt="A hand holding a phone with a bank payment screen." width="2000" height="2000" loading="lazy" decoding="async"></div><h4>Pay by Bank</h4><p>Money direct from the bank. No cards, real-time, lower cost.</p></li>
+      </ul>
+    </div>
+
+    <!-- Calculator -->
+    <div class="calc on-dark" id="calculator">
+      <div class="calc__intro">
+        <p>For most businesses, the friction isn’t the sale. It’s what happens after.</p>
+        <h3 id="calc-h">See how much stays in your business</h3>
+      </div>
+
+      <form class="calc__form" aria-labelledby="calc-h" onsubmit="return false">
+        <fieldset>
+          <div class="calc__lab"><legend id="vol-legend">Monthly processing volume</legend><output id="vol-out" for="vol">AED 10M</output></div>
+          <div class="vol" id="vol" role="radiogroup" aria-labelledby="vol-legend">
+            <label><input type="radio" name="vol" value="1000000"><span>1M</span></label>
+            <label><input type="radio" name="vol" value="5000000"><span>5M</span></label>
+            <label><input type="radio" name="vol" value="10000000" checked><span>10M</span></label>
+            <label><input type="radio" name="vol" value="20000000"><span>20M</span></label>
+            <label><input type="radio" name="vol" value="50000000"><span>50M</span></label>
+            <label><input type="radio" name="vol" value="100000000"><span>100M</span></label>
+          </div>
+          <div class="cur"><label for="cur">Currency</label>
+            <select id="cur">
+              <option selected>AED</option><option>USD</option><option>EUR</option><option>GBP</option><option>INR</option><option>SAR</option>
+            </select>
+          </div>
+        </fieldset>
+        <div>
+          <div class="calc__lab"><label for="share">Share routed to Pay10</label><output id="share-out" for="share">10%</output></div>
+          <input type="range" id="share" min="1" max="100" step="1" value="10" aria-describedby="share-ends">
+          <div class="range-ends" id="share-ends"><span>1%</span><span>100%</span></div>
+        </div>
+        <div>
+          <div class="calc__lab"><label for="mdr">Your current MDR</label><output id="mdr-out" for="mdr">2.50%</output></div>
+          <input type="range" id="mdr" min="0.5" max="4" step="0.05" value="2.5" aria-describedby="mdr-ends">
+          <div class="range-ends" id="mdr-ends"><span>0.5%</span><span>4.0%</span></div>
+        </div>
+        <p class="calc__note">The Pay10 rate: competitive MDR from ~0.65%, with near-real-time settlement. Final pricing reflects your market and business profile.</p>
+      </form>
+
+      <div class="calc__result">
+        <div aria-live="polite" aria-atomic="true">
+          <p class="calc__keep">You keep</p>
+          <p class="calc__big"><strong id="r-year">AED 222,000</strong><span>/ year</span></p>
+        </div>
+        <p class="calc__pct" id="r-pct">74% lower than your current cost</p>
+        <dl class="calc__break">
+          <dt id="b-vol-l">Volume on Pay10 (10%)</dt><dd id="b-vol">AED 1,000,000</dd>
+          <dt id="b-fee-l">Your fee (2.5%)</dt><dd id="b-fee">AED 25,000</dd>
+          <dt>Pay10 fee (~0.65%)</dt><dd id="b-p10">AED 6,500</dd>
+          <dt>You keep / year</dt><dd id="b-keep">AED 222,000</dd>
+        </dl>
+        <p class="calc__per">Volume and fees are monthly.</p>
+        <div class="calc__acts">
+          <a class="btn btn--sun" href="https://pay10.com/contact-us/">Talk to us</a>
+          <a class="textlink" href="mailto:globalsales@pay10.com?subject=Pay10%20Solution%20Enquiry">Email for an exact quote</a>
+        </div>
+      </div>
+      <p class="calc__fine">Indicative only, based on the values you enter. Acceptance costs commonly fall between 1–3%; Pay10’s rates start from around 0.65% with near-real-time settlement, with final pricing tailored to your market, volume and business profile. For an exact quote, talk to our team.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. ENTERPRISES ============ -->
+<section class="chapter" id="enterprises" aria-labelledby="enterprises-h">
+  <div class="wrap">
+    <figure class="scene scene--wide">
+      <div class="scene__pic"><img src="frames/handshake-1600.webp" srcset="frames/handshake-800.webp 800w, frames/handshake-1600.webp 1600w" sizes="(min-width:1440px) 1312px, 100vw" alt="Two businessmen shake hands in an office overlooking the Dubai skyline." width="1600" height="900" loading="lazy" decoding="async" style="object-position:50% 78%"></div>
+      <figcaption class="scene__bar"><span class="scene__who">For enterprises</span><span class="scene__line">A handshake on the deal.</span><button class="scene__tc" type="button" data-t="7.35" aria-label="Play the film from 0:07"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z"/></svg>0:07</button></figcaption>
+    </figure>
+
+    <div class="chapter__head">
+      <h2 id="enterprises-h">At scale, the small costs are the big ones</h2>
+      <p class="lead">A small cost and a day’s delay barely register on one transaction. Across millions, they define your margin and your working capital.</p>
+    </div>
+
+    <div class="moment e-eco">
+      <figure class="scene scene--tall">
+        <div class="scene__pic"><img src="frames/signing-1600.webp" srcset="frames/signing-800.webp 800w, frames/signing-1600.webp 1600w" sizes="(min-width:1024px) 520px, 100vw" alt="A businessman in a kandura signs a document in a leather folder." width="1600" height="900" loading="lazy" decoding="async"></div>
+        <figcaption class="scene__bar"><span class="scene__line">A partnership is signed.</span><span class="scene__who">For enterprises</span><button class="scene__tc" type="button" data-t="4.3" aria-label="Play the film from 0:04"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z"/></svg>0:04</button></figcaption>
+      </figure>
+      <div class="moment__copy">
+        <h3>One ecosystem for a growing organisation</h3>
+        <p>Accept, operate, and govern payments across every location, channel, and market.</p>
+        <ul class="prodlist">
+          <li><span class="who">Merchant Portal</span><h4>The whole organisation, in command</h4><p>Reporting and analytics, settlements, VAT, and multi-user visibility, unified in one place.</p></li>
+          <li><span class="who">Payment Gateway</span><h4>Acceptance that fits your stack</h4><p>Hosted, merchant-hosted, or server-to-server, with APIs, webhooks, and a sandbox for a controlled rollout.</p></li>
+          <li><span class="who">Pay10 World</span><h4>Collections without borders</h4><p>Collect across markets in 100+ currencies and settle in yours, with one checkout for local methods. Available in India.</p></li>
+          <li><span class="who">Payment Devices</span><h4>A device fleet, managed as one</h4><p>Manage devices at scale across your range, with remote configuration and over-the-air updates.</p></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="trusted">
+      <h3>Trusted by businesses like yours</h3>
+      <ul class="logos">
+        <li><img src="../assets/client-allday.png" alt="allday" width="700" height="276" loading="lazy" decoding="async"></li>
+        <li><img src="../assets/client-justgold.svg" alt="Just Gold" width="168" height="62" loading="lazy" decoding="async"></li>
+        <li><img src="../assets/client-irctc.png" alt="IRCTC" width="1000" height="312" loading="lazy" decoding="async"></li>
+        <li><img src="../assets/client-blackbuck.png" alt="BlackBuck" width="775" height="258" loading="lazy" decoding="async"></li>
+        <li><img class="tall" src="../assets/client-country-delight.png" alt="Country Delight" width="300" height="150" loading="lazy" decoding="async"></li>
+        <li><img class="tall" src="../assets/client-malabar.png" alt="Malabar" width="566" height="283" loading="lazy" decoding="async"></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. PARTNERS ============ -->
+<section class="partners on-dark" id="partners" aria-labelledby="partners-h">
+  <figure class="scene">
+    <div class="scene__pic"><img src="frames/skyline-1600.webp" srcset="frames/skyline-800.webp 800w, frames/skyline-1600.webp 1600w" sizes="100vw" alt="The Dubai skyline across the water at golden hour." width="1600" height="900" loading="lazy" decoding="async"></div>
+    <figcaption class="scene__bar"><span class="scene__who">For banks and partners</span><span class="scene__line">Golden hour over Dubai.</span><button class="scene__tc" type="button" data-t="0" aria-label="Play the film from the start"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z"/></svg>0:00</button></figcaption>
+  </figure>
+
+  <div class="wrap">
+    <div class="chapter__head">
+      <h2 id="partners-h">Licensed & regulated across multiple markets</h2>
+      <p class="lead">For banks, payment institutions, and merchants, one partnership opens access to multiple regulated markets, every payment capability, and the scale to grow, without building any of it.</p>
+    </div>
+
+    <div class="mk" id="markets">
+      <div class="mk__intro">
+        <h3>Five licensed markets, each with a local office</h3>
+        <p>Choose a market to see who regulates it, what Pay10 is licensed to do there, and where to find the local office.</p>
+        <div class="mk__tabs" role="tablist" aria-label="Pay10 markets" aria-orientation="vertical">
+          <button class="mk__tab" role="tab" id="tab-uae" aria-controls="mk-uae" aria-selected="true" tabindex="0"><span class="mk__name">Pay10 UAE</span><span class="mk__reg">CBUAE</span></button><button class="mk__tab" role="tab" id="tab-india" aria-controls="mk-india" aria-selected="false" tabindex="-1"><span class="mk__name">Pay10 India</span><span class="mk__reg">RBI</span></button><button class="mk__tab" role="tab" id="tab-bahrain" aria-controls="mk-bahrain" aria-selected="false" tabindex="-1"><span class="mk__name">Pay10 Bahrain</span><span class="mk__reg">CBB</span></button><button class="mk__tab" role="tab" id="tab-morocco" aria-controls="mk-morocco" aria-selected="false" tabindex="-1"><span class="mk__name">Pay10 Morocco</span><span class="mk__reg">BAM</span></button><button class="mk__tab" role="tab" id="tab-hungary" aria-controls="mk-hungary" aria-selected="false" tabindex="-1"><span class="mk__name">Pay10 EU</span><span class="mk__reg">MNB</span></button>
+        </div>
+      </div>
+      <div class="mk__panels">
+      <section class="mk__panel" role="tabpanel" id="mk-uae" aria-labelledby="tab-uae" tabindex="0">
+        <h4 class="mk__title">Pay10 UAE</h4>
+        <p class="mk__entity">PAY TEN PAYMENT SERVICES PROVIDER L.L.C</p>
+        <dl class="mk__facts">
+          <div><dt>Regulated by</dt><dd>Central Bank of the UAE (CBUAE)</dd></div>
+          <div><dt>Licences</dt><dd><ul class="mk__lic"><li>Open Finance</li><li>RPS – Cat II</li><li>SVF</li></ul></dd></div>
+          <div><dt>Milestones</dt><dd><ul class="mk__hist"><li><b>2023</b> Headquarters opened in Dubai</li><li><b>2024</b> SVF and RPSCS licenses from the Central Bank of the UAE</li><li><b>2025</b> Open Finance Payment Initiation approval from the Central Bank of the UAE</li></ul></dd></div>
+          <div><dt>Office</dt><dd><address>1004, 10th Floor, U-Bora Tower, Business Bay, Dubai, United Arab Emirates</address><a class="textlink" href="mailto:info@pay10.ae">info@pay10.ae</a> <a class="textlink" href="https://pay10.ae/">Visit pay10.ae</a></dd></div>
+        </dl>
+      </section>
+      <section class="mk__panel" role="tabpanel" id="mk-india" aria-labelledby="tab-india" tabindex="0">
+        <h4 class="mk__title">Pay10 India</h4>
+        <p class="mk__entity">Pay10 Services Private Limited</p>
+        <dl class="mk__facts">
+          <div><dt>Regulated by</dt><dd>Reserve Bank of India (RBI)</dd></div>
+          <div><dt>Licences</dt><dd><ul class="mk__lic"><li>PA-O</li><li>PA-CB I&amp;E</li></ul></dd></div>
+          <div><dt>Milestones</dt><dd><ul class="mk__hist"><li><b>2017</b> Founded in India</li><li><b>2024</b> Payment Aggregator Cross Border license from the Reserve Bank of India</li></ul></dd></div>
+          <div><dt>Office</dt><dd><address>Property Bearing No. 4, First Floor, Ring Road, Lajpat Nagar-IV, New Delhi-110024</address><a class="textlink" href="mailto:info@pay10.in">info@pay10.in</a> <a class="textlink" href="https://www.pay10.in/">Visit pay10.in</a></dd></div>
+        </dl>
+      </section>
+      <section class="mk__panel" role="tabpanel" id="mk-bahrain" aria-labelledby="tab-bahrain" tabindex="0">
+        <h4 class="mk__title">Pay10 Bahrain</h4>
+        <p class="mk__entity">PAY TEN B.S.C CLOSED</p>
+        <dl class="mk__facts">
+          <div><dt>Regulated by</dt><dd>Central Bank of Bahrain (CBB)</dd></div>
+          <div><dt>Licences</dt><dd><ul class="mk__lic"><li>Type 7 ABP</li></ul></dd></div>
+          <div><dt>Milestones</dt><dd><ul class="mk__hist"><li><b>2025</b> Payment Services License from the Central Bank of Bahrain</li></ul></dd></div>
+          <div><dt>Office</dt><dd><address>Unit 22B, 22nd Floor, Harbour Tower East, Bahrain Financial Harbour, King Faisal Highway, Manama, Kingdom of Bahrain</address><a class="textlink" href="mailto:info@pay10.bh">info@pay10.bh</a> <a class="textlink" href="https://pay10.bh/">Visit pay10.bh</a></dd></div>
+        </dl>
+      </section>
+      <section class="mk__panel" role="tabpanel" id="mk-morocco" aria-labelledby="tab-morocco" tabindex="0">
+        <h4 class="mk__title">Pay10 Morocco</h4>
+        <p class="mk__entity">PAY TEN MAR</p>
+        <dl class="mk__facts">
+          <div><dt>Regulated by</dt><dd>Bank Al-Maghrib (BAM)</dd></div>
+          <div><dt>Licences</dt><dd><ul class="mk__lic"><li>Payment Institution</li></ul></dd></div>
+          <div><dt>Milestones</dt><dd><ul class="mk__hist"><li><b>2025</b> Payment Institution License approval from Bank Al-Maghrib</li></ul></dd></div>
+          <div><dt>Office</dt><dd><address>Casa Business Towers, Avenue Mainstreet, 1st floor, Office nº 31/32, Casablanca Finance City, Morocco</address><a class="textlink" href="mailto:info@pay10.ma">info@pay10.ma</a> <a class="textlink" href="https://pay10.ma/">Visit pay10.ma</a></dd></div>
+        </dl>
+      </section>
+      <section class="mk__panel" role="tabpanel" id="mk-hungary" aria-labelledby="tab-hungary" tabindex="0">
+        <h4 class="mk__title">Pay10 EU</h4>
+        <p class="mk__entity">Pay10 EU Kft</p>
+        <dl class="mk__facts">
+          <div><dt>Regulated by</dt><dd>Magyar Nemzeti Bank (National Bank of Hungary) (MNB)</dd></div>
+          <div><dt>Licences</dt><dd><ul class="mk__lic"><li>Electronic Money Institution</li></ul></dd></div>
+          <div><dt>Milestones</dt><dd><ul class="mk__hist"><li><b>2026</b> EU entry through Pay10 EU Kft’s Electronic Money Institution (EMI) license granted by the National Bank of Hungary</li></ul></dd></div>
+          <div><dt>Office</dt><dd><address>1082 Budapest, Futó utca 37-45, Hungary</address><a class="textlink" href="mailto:info@pay10.eu">info@pay10.eu</a> </dd></div>
+        </dl>
+      </section>
+      </div>
+    </div>
+
+    <div class="openfin">
+      <div class="openfin__head">
+        <h3>Open Finance, live with UAE banks</h3>
+        <p>Pay10 works alongside the banks: two go-lives under the UAE’s Open Finance initiative.</p>
+      </div>
+      <div class="openfin__list">
+        <article class="news">
+          <a href="https://pay10.com/news/pay10-and-first-abu-dhabi-bank-announce-open-finance/">
+            <div class="news__img"><img src="../assets/post-pay10-and-first-abu-dhabi-bank-announce-open-finance.jpg" alt="" width="1430" height="746" loading="lazy" decoding="async"></div>
+            <h4>Pay10 and First Abu Dhabi Bank Announce Open Finance</h4>
+          </a>
+          <time datetime="2026-06-26">26 June 2026</time>
+          <p>FAB has gone live on Open Finance for its retail customers, with Pay10.</p>
+        </article>
+        <article class="news">
+          <a href="https://pay10.com/news/pay10-and-cbd-launch-open-finance/">
+            <div class="news__img"><img src="../assets/post-pay10-and-cbd-launch-open-finance.jpg" alt="" width="1430" height="746" loading="lazy" decoding="async"></div>
+            <h4>Pay10 and CBD Launch Open Finance</h4>
+          </a>
+          <time datetime="2026-06-26">26 June 2026</time>
+          <p>Commercial Bank of Dubai goes live on Open Finance under AlTareq.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="security">
+      <div class="security__copy">
+        <h3>World’s most rigorous security</h3>
+        <p>Across every market, Pay10’s regional entities run on regulated infrastructure certified to the world’s most rigorous standards. So every transaction, every user, and every business stays secure by default.</p>
+      </div>
+      <ul class="certs">
+        <li><figure><div class="roundel"><img src="../assets/cert-pci-dss.png" alt="" width="1000" height="1000" loading="lazy" decoding="async"></div><figcaption>PCI DSS Level 1</figcaption></figure></li>
+        <li><figure><div class="roundel"><img src="../assets/cert-soc2.png" alt="" width="1000" height="1000" loading="lazy" decoding="async"></div><figcaption>SOC 2 Type II</figcaption></figure></li>
+        <li><figure><div class="roundel"><img src="../assets/cert-iso-27001.png" alt="" width="1000" height="1000" loading="lazy" decoding="async"></div><figcaption>ISO 27001:2013</figcaption></figure></li>
+        <li><figure><div class="roundel"><img src="../assets/cert-iso-9001.png" alt="" width="1000" height="1000" loading="lazy" decoding="async"></div><figcaption>ISO 9001:2015</figcaption></figure></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE PEOPLE BEHIND PAY10 ============ -->
+<section class="people" id="people" aria-labelledby="people-h">
+  <div class="wrap">
+    <div class="chapter__head" style="margin-top:0">
+      <h2 id="people-h">The people behind Pay10</h2>
+      <p class="lead">Most payments companies do one thing, in one place. Pay10 Global does the whole of payments, everywhere it’s licensed.</p>
+    </div>
+    <div class="board">
+      <figure><div class="ph"><img src="../assets/team-harry-gill.jpg" alt="Harry Gill" width="1000" height="666" loading="lazy" decoding="async"></div><figcaption><span class="person">Harry Gill</span><span class="role">Founder and Chairman</span></figcaption></figure>
+      <figure><div class="ph"><img src="../assets/team-saad-kaleem.jpg" alt="Saad Kaleem" width="1000" height="667" loading="lazy" decoding="async"></div><figcaption><span class="person">Saad Kaleem</span><span class="role">Global CEO</span></figcaption></figure>
+    </div>
+    <ul class="team" aria-label="Leadership team"><li><figure><div class="roundel"><img src="../assets/team-hala-eldarwish.jpg" alt="" width="545" height="704" loading="lazy" decoding="async"></div><figcaption><span class="person">Hala Eldarwish</span><span class="role">Head of Global Expansion</span></figcaption></figure></li><li><figure><div class="roundel"><img src="../assets/team-akash-nainwal.jpg" alt="" width="545" height="704" loading="lazy" decoding="async"></div><figcaption><span class="person">Akash Nainwal</span><span class="role">Chief Operating Officer</span></figcaption></figure></li><li><figure><div class="roundel"><img src="../assets/team-peri-ozdemir.jpg" alt="" width="545" height="704" loading="lazy" decoding="async"></div><figcaption><span class="person">Peri Ozdemir</span><span class="role">Chief Product Officer</span></figcaption></figure></li><li><figure><div class="roundel"><img src="../assets/team-rahul-singh.jpg" alt="" width="545" height="704" loading="lazy" decoding="async"></div><figcaption><span class="person">Rahul Singh</span><span class="role">Chief Technology Officer</span></figcaption></figure></li><li><figure><div class="roundel"><img src="../assets/team-shweta-sood.jpg" alt="" width="907" height="1361" loading="lazy" decoding="async"></div><figcaption><span class="person">Shweta Sood</span><span class="role">Chief Risk Officer</span></figcaption></figure></li><li><figure><div class="roundel"><img src="../assets/team-temi-labor.jpg" alt="" width="907" height="1361" loading="lazy" decoding="async"></div><figcaption><span class="person">Temi Labor</span><span class="role">Chief Internal Auditor</span></figcaption></figure></li><li><figure><div class="roundel"><img src="../assets/team-katerina-zemskova.jpg" alt="" width="907" height="1361" loading="lazy" decoding="async"></div><figcaption><span class="person">Katerina Zemskova</span><span class="role">Chief Digital Asset Officer and Chief Operating Officer</span></figcaption></figure></li></ul>
+    <p class="people__links"><a class="textlink" href="#">About Pay10 Global</a><a class="textlink" href="#">Vision &amp; Mission</a><a class="textlink" href="#">Careers at Pay10</a></p>
+  </div>
+</section>
+
+<!-- ============ INSIGHTS ============ -->
+<section class="insights" id="insights" aria-labelledby="insights-h">
+  <div class="wrap">
+    <div class="insights__head">
+      <h2 id="insights-h">Latest insights</h2>
+      <a class="textlink" href="#">All news, events and blogs</a>
+    </div>
+    <div class="insights__grid">
+      <article class="post post--lead">
+        <a href="https://pay10.com/events/singapore-fintech-festival-2025/">
+          <div class="post__img"><img src="../assets/post-singapore-fintech-festival-2025.jpg" alt="The Pay10 stand at Singapore FinTech Festival." width="2000" height="1333" loading="lazy" decoding="async"></div>
+          <div class="post__meta"><b>Event</b><span>12–14 Nov 2025, Singapore</span></div>
+          <h3>Singapore FinTech Festival 2025</h3>
+          <p>Pay10 brought its vision for a connected, interoperable global payments ecosystem to the world stage at Singapore FinTech Festival 2025.</p>
+        </a>
+      </article>
+      <div class="post-side">
+        <article class="post">
+          <a href="https://pay10.com/how-pay10-simplifies-international-payments-for-indian-merchants/">
+            <div class="post__img"><img src="../assets/post-how-pay10-simplifies-international-payments-for-indian-merchants.jpg" alt="" width="1440" height="651" loading="lazy" decoding="async"></div>
+            <div class="post__meta"><b>Blog</b><time datetime="2026-05-20">20 May 2026</time></div>
+            <h3>How Pay10 Simplifies International Payments for Indian Merchants</h3>
+          </a>
+        </article>
+        <article class="post">
+          <a href="https://pay10.com/top-5-currencies-traded-in-cross-border-payments/">
+            <div class="post__img"><img src="../assets/post-top-5-currencies-traded-in-cross-border-payments.jpg" alt="" width="2000" height="909" loading="lazy" decoding="async"></div>
+            <div class="post__meta"><b>Blog</b><time datetime="2026-05-19">19 May 2026</time></div>
+            <h3>Top 5 Currencies Traded in Cross-Border Payments</h3>
+          </a>
+        </article>
+        <article class="post">
+          <a href="https://www.arabianbusiness.com/finance/fintech/creating-a-fintech-vision-for-global-connectivity">
+            <div class="post__img"><img src="../assets/tl-global-connectivity.jpg" alt="" width="1181" height="664" loading="lazy" decoding="async"></div>
+            <div class="post__meta"><b>Thought leadership</b><span>Arabian Business</span></div>
+            <h3>Creating a fintech vision for global connectivity</h3>
+          </a>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TALK TO US ============ -->
+<section class="talk" id="talk" aria-labelledby="talk-h">
+  <div class="wrap talk__in">
+    <figure class="scene scene--compact">
+      <div class="scene__pic"><img src="frames/teddy-1600.webp" srcset="frames/teddy-800.webp 800w, frames/teddy-1600.webp 1600w" sizes="(min-width:1024px) 640px, 100vw" alt="A boy hugs a new teddy bear at the shop counter." width="1600" height="733" loading="lazy" decoding="async"></div>
+      <figcaption class="scene__bar"><span class="scene__line">With a new friend.</span><span class="scene__who">The last scene</span><button class="scene__tc" type="button" data-t="14.0" aria-label="Play the film from 0:14"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z"/></svg>0:14</button></figcaption>
+    </figure>
+    <div class="talk__copy">
+      <h2 id="talk-h">Why Pay, when you can Pay10</h2>
+      <p class="talk__lede">Move money with confidence, clarity, and speed, wherever you are.</p>
+      <form class="form" id="talk-form" novalidate aria-labelledby="form-h">
+        <h3 id="form-h">Reach out to our sales team</h3>
+        <div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="f-email">Business email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="f-co">Company name</label><input id="f-co" name="company" autocomplete="organization"></div>
+        <div class="field"><label for="f-msg">How can we help you?</label><textarea id="f-msg" name="message"></textarea></div>
+        <label class="consent"><input type="checkbox" id="f-ok" required><span>I agree to be contacted regarding my enquiry. I understand that I may receive follow-up communications and can opt out at any time. I have read the <a href="#">Privacy Policy</a>.</span></label>
+        <p class="form__err" id="f-err" role="alert"></p>
+        <div><button class="btn btn--sun" type="submit">Send to our sales team</button></div>
+        <p class="form__note">Sending opens your email app with your message addressed to globalsales@pay10.com.</p>
+      </form>
+      <p class="form__alt"><a class="textlink" href="mailto:globalsales@pay10.com">globalsales@pay10.com</a><a class="textlink" href="#markets">Find the office in your market</a></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-foot on-dark">
+  <div class="wrap">
+    <div class="foot__top">
+      <div class="foot__brand">
+        <img src="../assets/logo-on-dark.png" alt="Pay10" width="92" height="56" loading="lazy">
+        <address>Pay Ten Global Technology LLC<br>1001, 10th Floor, U-Bora Tower, Business Bay, Dubai, United Arab Emirates</address>
+        <p><a href="mailto:globalsales@pay10.com">globalsales@pay10.com</a></p>
+        <p><a href="https://www.linkedin.com/company/pay-10/">Pay10 on LinkedIn</a></p>
+      </div>
+      <nav class="foot__cols" aria-label="Footer">
+        <div><h2>Company</h2><ul><li><a href="#">About Us</a></li><li><a href="#">Vision &amp; Mission</a></li><li><a href="#">Careers</a></li><li><a href="#insights">Insights</a></li><li><a href="https://pay10.com/contact-us/">Contact Us</a></li></ul></div>
+        <div><h2>Products</h2><ul><li><a href="#">Consumer App</a></li><li><a href="#">International Transfers</a></li><li><a href="#">Merchant App</a></li><li><a href="#">Merchant Portal</a></li><li><a href="#">Payment Gateway</a></li><li><a href="#">Payment Devices</a></li><li><a href="#">Pay10 World</a></li></ul></div>
+        <div><h2>Solutions</h2><ul><li><a href="#">Small &amp; Medium Businesses</a></li><li><a href="#">Large Enterprises</a></li><li><a href="#">Digital Assets</a></li><li><a href="#">Multinational Companies</a></li></ul></div>
+        <div><h2>Platform</h2><ul><li><a href="#">Pay with Pay10</a></li><li><a href="#">Pay by Bank</a></li><li><a href="#">QR Payments</a></li><li><a href="#">Payment Links</a></li><li><a href="#">Integration Methods</a></li></ul></div>
+        <div><h2>Markets</h2><ul><li><a href="https://www.pay10.in/">India</a></li><li><a href="https://pay10.ae/">UAE</a></li><li><a href="https://pay10.bh/">Bahrain</a></li><li><a href="https://pay10.ma/">Morocco</a></li></ul></div>
+      </nav>
+    </div>
+
+    <section class="foot__reg" aria-labelledby="reg-h">
+      <h2 id="reg-h">Regulatory information</h2>
+      <p>Pay10 Services Private Limited (“Pay10 India”) is authorized and regulated by the Reserve Bank of India (“RBI”) as a Payment Aggregator – Online (PA-O), Payment Aggregator – Cross Border, Import &amp; Export (PA-CB I&amp;E), and Prepaid Payment Instrument Issuer (APM, POS). Services are provided in accordance with applicable laws, regulations, circulars, and directions issued by the Reserve Bank of India and other competent authorities.</p>
+      <p>PAY TEN PAYMENT SERVICES PROVIDER L.L.C (“Pay10 UAE”) is licensed and regulated by the Central Bank of the UAE (“CBUAE”) and holds an Open Finance Licence (APM, POS), Retail Payment Services (RPS – Category II) authorization for Merchant Acquiring Services, Account Issuing, Payment Aggregation Services, Domestic Fund Transfer Services, and Cross-Border Remittances, as well as Stored Value Facilities (SVF) authorization for Opening &amp; Maintaining Digital Wallets and Payment Aggregator – Online (PA-O) services. Services are provided in accordance with applicable UAE laws, regulations, and regulatory requirements.</p>
+      <p>PAY TEN B.S.C CLOSED (“Pay10 Bahrain”) is licensed and regulated by the Central Bank of Bahrain (“CBB”) as a Type 7 Ancillary Business Provider – Payment Services Provider Licence (APM, POS). Services are provided in accordance with applicable laws, regulations, and directives issued by the Central Bank of Bahrain.</p>
+      <p>PAY TEN MAR (“Pay10 Morocco”) is licensed and regulated by Bank Al-Maghrib (“BAM”) as a Payment Institution Licence (APM, POS) holder. Services are provided in accordance with applicable Moroccan laws, regulations, and supervisory requirements.</p>
+    </section>
+
+    <div class="foot__bottom">
+      <p>© 2026 | Pay Ten Global Technology LLC</p>
+      <ul><li><a href="#">Cookie Policy</a></li><li><a href="#">Privacy Policy</a></li></ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  document.documentElement.classList.add('js');
+
+  /* ---------- Site index (the full directory) ---------- */
+  var menuBtn = document.querySelector('.menu-btn');
+  var siteIndex = document.getElementById('site-index');
+  function setIndex(open, refocus){
+    menuBtn.setAttribute('aria-expanded', String(open));
+    siteIndex.hidden = !open;
+    if (!open && refocus) menuBtn.focus();
+  }
+  menuBtn.addEventListener('click', function(){ setIndex(menuBtn.getAttribute('aria-expanded') !== 'true'); });
+  siteIndex.addEventListener('click', function(e){ if (e.target.closest('a')) setIndex(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !siteIndex.hidden) setIndex(false, true); });
+  document.addEventListener('click', function(e){ if (!siteIndex.hidden && !e.target.closest('.site-head')) setIndex(false); });
+
+  /* ---------- Story rail: mark the chapter being read ---------- */
+  var railLinks = document.querySelectorAll('.rail a');
+  if ('IntersectionObserver' in window) {
+    var chapters = ['consumers','merchants','enterprises','partners'].map(function(id){ return document.getElementById(id); });
+    var seen = {};
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ seen[en.target.id] = en.isIntersecting; });
+      var active = null;
+      chapters.forEach(function(c){ if (!active && seen[c.id]) active = c.id; });
+      railLinks.forEach(function(a){
+        if (a.getAttribute('data-ch') === active) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    chapters.forEach(function(c){ io.observe(c); });
+  }
+
+  /* ---------- Market picker (tabs) ---------- */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.mk__tab'));
+  function selectTab(tab, focus){
+    tabs.forEach(function(t){
+      var on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) tab.focus();
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ selectTab(t); });
+    t.addEventListener('keydown', function(e){
+      var n = null;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') n = tabs[(i+1) % tabs.length];
+      if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') n = tabs[(i-1+tabs.length) % tabs.length];
+      if (e.key === 'Home') n = tabs[0];
+      if (e.key === 'End') n = tabs[tabs.length-1];
+      if (n) { e.preventDefault(); selectTab(n, true); }
+    });
+  });
+  if (tabs.length) selectTab(tabs[0]);
+
+  /* ---------- Contact form: composes an email to the sales team ---------- */
+  var form = document.getElementById('talk-form');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var err = document.getElementById('f-err');
+    var name = form.name.value.trim(), email = form.email.value.trim();
+    var problem = !name ? ['f-name','Enter your full name.'] :
+                  !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) ? ['f-email','Enter a business email address, like name@company.com.'] :
+                  !document.getElementById('f-ok').checked ? ['f-ok','Tick the box to agree to be contacted about your enquiry.'] : null;
+    if (problem) { err.textContent = problem[1]; document.getElementById(problem[0]).focus(); return; }
+    err.textContent = '';
+    var body = 'Name: ' + name + '\nEmail: ' + email + '\nCompany: ' + form.company.value.trim() + '\n\n' + form.message.value.trim();
+    window.location.href = 'mailto:globalsales@pay10.com?subject=' + encodeURIComponent('Pay10 Solution Enquiry') + '&body=' + encodeURIComponent(body);
+  });
+
+  /* ---------- The film, with its subtitles ---------- */
+  var video = document.getElementById('film-video');
+  var line = document.getElementById('film-line');
+  var bar = document.getElementById('film-progress');
+  var now = document.getElementById('film-now');
+  var toggle = document.getElementById('film-toggle');
+  var toggleLabel = document.getElementById('film-toggle-label');
+  var icon = document.getElementById('film-icon');
+  var cues = [
+    [0,     'Golden hour over Dubai.'],
+    [2.0,   'Two kids watch the city go by.'],
+    [3.4,   'Upstairs, a meeting begins.'],
+    [4.27,  'A partnership is signed.'],
+    [5.1,   'Next door, the toy shop is open.'],
+    [5.83,  'Someone has spotted the teddy bears.'],
+    [6.57,  'Off they go.'],
+    [7.3,   'A handshake on the deal.'],
+    [7.9,   'The shop fills up.'],
+    [8.9,   'This one.'],
+    [9.73,  'At the counter.'],
+    [10.8,  'AED 878.00. One scan.'],
+    [11.9,  'Thank you!'],
+    [12.67, 'Settled instantly.'],
+    [14.0,  'Time to go home.'],
+    [14.67, 'With a new friend.']
+  ];
+  var PLAY = '<path d="M4 2l10 6-10 6z"/>', PAUSE = '<path d="M4 2h3v12H4zM9 2h3v12H9z"/>';
+  var userPaused = false, current = -1, inView = true;
+
+  function fmt(t){ t = Math.floor(t); return Math.floor(t/60) + ':' + String(t%60).padStart(2,'0'); }
+  function render(){
+    var t = video.currentTime || 0, d = video.duration || 15, i = 0;
+    for (var k = 0; k < cues.length; k++) { if (t >= cues[k][0]) i = k; }
+    if (i !== current) { current = i; line.textContent = cues[i][1]; }
+    bar.style.width = Math.min(100, t / d * 100) + '%';
+    now.textContent = fmt(t);
+  }
+  function setUI(playing){
+    toggleLabel.textContent = playing ? 'Pause film' : 'Play film';
+    icon.innerHTML = playing ? PAUSE : PLAY;
+  }
+  function loop(){ render(); if (!video.paused) requestAnimationFrame(loop); }
+  video.addEventListener('play', function(){ setUI(true); requestAnimationFrame(loop); });
+  video.addEventListener('pause', function(){ setUI(false); render(); });
+  video.addEventListener('seeked', render);
+  video.addEventListener('loadedmetadata', render);
+
+  function tryPlay(){ var p = video.play(); if (p && p.catch) p.catch(function(){ setUI(false); }); }
+  toggle.addEventListener('click', function(){
+    if (video.paused) { userPaused = false; tryPlay(); } else { userPaused = true; video.pause(); }
+  });
+
+  if (reduce.matches) { userPaused = true; setUI(false); }
+  else { tryPlay(); }
+
+  // Save effort when the film is off screen; resume only if the viewer didn't pause it.
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(entries){
+      inView = entries[0].isIntersecting;
+      if (!inView && !video.paused) video.pause();
+      else if (inView && video.paused && !userPaused) tryPlay();
+    }, { threshold: 0.2 }).observe(video);
+  }
+
+  // Timecodes on stills: jump back into the film at that moment.
+  document.querySelectorAll('.scene__tc').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var t = parseFloat(btn.getAttribute('data-t')) || 0;
+      document.getElementById('film').scrollIntoView({ behavior: reduce.matches ? 'auto' : 'smooth', block: 'center' });
+      userPaused = false;
+      try { video.currentTime = t; } catch(e){}
+      tryPlay();
+      toggle.focus({ preventScroll: true });
+    });
+  });
+
+  /* ---------- MDR savings calculator ---------- */
+  var RATE = 0.65;
+  var curSel = document.getElementById('cur');
+  var share = document.getElementById('share');
+  var mdr = document.getElementById('mdr');
+  var labels = { 1000000:'1M', 5000000:'5M', 10000000:'10M', 20000000:'20M', 50000000:'50M', 100000000:'100M' };
+  var $ = function(id){ return document.getElementById(id); };
+
+  function money(v, cur){
+    try { return new Intl.NumberFormat('en', { style:'currency', currency:cur, currencyDisplay:'code', maximumFractionDigits:0 }).format(Math.round(v)).replace(/ /g,' '); }
+    catch(e){ return cur + ' ' + Math.round(v).toLocaleString('en'); }
+  }
+  function fill(input){
+    var p = (input.value - input.min) / (input.max - input.min) * 100;
+    input.style.setProperty('--p', p + '%');
+  }
+  function calc(){
+    var volume = parseFloat(document.querySelector('input[name=vol]:checked').value);
+    var cur = curSel.value;
+    var s = parseFloat(share.value);
+    var m = parseFloat(mdr.value);
+    var p10Vol = volume * s / 100;
+    var currentFee = p10Vol * m / 100;
+    var pay10Fee = p10Vol * RATE / 100;
+    var monthly = Math.max(currentFee - pay10Fee, 0);
+    var yearly = monthly * 12;
+    var pct = currentFee > 0 ? Math.round(monthly / currentFee * 100) : 0;
+
+    $('vol-out').textContent = cur + ' ' + labels[volume];
+    $('share-out').textContent = s + '%';
+    $('mdr-out').textContent = m.toFixed(2) + '%';
+    $('r-year').textContent = money(yearly, cur);
+    $('r-pct').textContent = monthly > 0 ? pct + '% lower than your current cost' : 'Your current rate is already at or below ~0.65%';
+    $('b-vol-l').textContent = 'Volume on Pay10 (' + s + '%)';
+    $('b-fee-l').textContent = 'Your fee (' + (+m.toFixed(2)) + '%)';
+    $('b-vol').textContent = money(p10Vol, cur);
+    $('b-fee').textContent = money(currentFee, cur);
+    $('b-p10').textContent = money(pay10Fee, cur);
+    $('b-keep').textContent = money(yearly, cur);
+    fill(share); fill(mdr);
+  }
+  document.querySelectorAll('input[name=vol]').forEach(function(r){ r.addEventListener('change', calc); });
+  curSel.addEventListener('change', calc);
+  share.addEventListener('input', calc);
+  mdr.addEventListener('input', calc);
+  calc();
+})();
+</script>
+</body>
+</html>

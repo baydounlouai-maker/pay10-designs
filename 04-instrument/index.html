@@ -1,0 +1,1127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pay10 Global | One platform. Every payment. Anywhere</title>
+<meta name="description" content="Pay10 Global unifies consumer, merchant, online and in-person payments on regulated infrastructure licensed in India, the UAE, Bahrain, Morocco and the EU.">
+<link rel="icon" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+<style>
+:root{
+  --paper:#ECEEEA;      /* page: cool mineral grey, ledger paper */
+  --sheet:#F8F9F6;      /* raised surfaces: the instrument plate, the certificate */
+  --ink:#1C2B3F;        /* slate-blue ink: text, rules, needles */
+  --ink-2:#4D5A68;      /* secondary text */
+  --rule:#C3C9CC;
+  --rule-2:#DADFE0;
+  --red:#ED1C24;        /* Pay10 red: what you pay today */
+  --red-text:#B8141A;
+  --yellow:#FDB913;     /* the "10" roundel: what you keep, what is live */
+  --yellow-edge:#D99A00;
+  --night:#1C2B3F;
+  --night-rule:#3A4A5E;
+  --night-text:#C7D0DA;
+
+  --f:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --s-12:.75rem;--s-13:.8125rem;--s-15:.9375rem;--s-17:1.0625rem;--s-21:1.3125rem;--s-28:1.75rem;--s-36:2.25rem;
+
+  --gut:clamp(16px,4vw,48px);
+  --max:1280px;
+  --sec:clamp(80px,9vw,136px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:16px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f);font-size:var(--s-17);line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-underline-offset:.18em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px}
+h1,h2,h3,h4,p,figure{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+table{border-collapse:collapse;width:100%}
+button{font:inherit;color:inherit}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.wrap{max-width:calc(var(--max) + 2*var(--gut));margin-inline:auto;padding-inline:var(--gut)}
+.skip{position:absolute;left:8px;top:-60px;background:var(--ink);color:var(--sheet);padding:10px 14px;z-index:30;text-decoration:none}
+.skip:focus{top:8px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.6em;min-height:46px;padding:0 20px;border-radius:6px;font:600 var(--s-15)/1 var(--f);font-stretch:108%;text-decoration:none;border:1.5px solid var(--ink);background:var(--ink);color:var(--sheet);cursor:pointer;white-space:nowrap}
+.btn:hover{background:#2A3D55;border-color:#2A3D55}
+.btn--line{background:transparent;color:var(--ink)}
+.btn--line:hover{background:var(--ink);color:var(--sheet)}
+.btn--yellow{background:var(--yellow);border-color:var(--yellow);color:var(--ink)}
+.btn--yellow:hover{background:#FFC93F;border-color:#FFC93F}
+.btn .rd{width:10px;height:10px;border-radius:50%;background:var(--yellow);flex:none}
+
+/* segmented settings (market, currency) */
+.seg{display:flex;border:1px solid var(--ink);border-radius:6px;overflow:hidden;background:var(--sheet)}
+.seg label{position:relative;flex:1 1 auto}
+.seg input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer;width:100%;height:100%}
+.seg span{display:block;text-align:center;padding:8px 10px;font-size:var(--s-13);font-weight:600;font-stretch:96%;letter-spacing:.02em;border-left:1px solid var(--rule);white-space:nowrap}
+.seg label:first-child span{border-left:0}
+.seg input:hover+span{background:#E7EAE6}
+.seg input:checked+span{background:var(--ink);color:var(--sheet)}
+.seg input:focus-visible+span{outline:2px solid var(--yellow);outline-offset:-4px;border-radius:3px}
+
+/* ---------- header ---------- */
+.site-head{border-bottom:1px solid var(--rule);position:relative;z-index:15}
+.site-head .wrap{display:flex;align-items:center;gap:28px;height:76px}
+.logo{flex:none}
+.logo img{height:48px;width:auto}
+.nav{display:flex;gap:26px;margin-left:auto;font-size:var(--s-15);font-weight:500}
+.nav a{text-decoration:none;padding:6px 0;border-bottom:1.5px solid transparent}
+.nav a:hover{border-bottom-color:var(--ink)}
+.mkt-pick{display:flex;align-items:center;gap:8px;font-size:var(--s-13);color:var(--ink-2)}
+.mkt-pick select{font:600 var(--s-15)/1 var(--f);color:var(--ink);background:var(--sheet);border:1px solid var(--ink);border-radius:6px;padding:9px 30px 9px 10px;appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 15px) 52%,calc(100% - 10px) 52%;background-size:5px 5px;background-repeat:no-repeat;cursor:pointer}
+.site-head .btn{min-height:40px;padding:0 16px}
+.menu-btn{display:none}
+@media (max-width:1100px){
+  .site-head .wrap{gap:12px;height:64px}
+  .logo img{height:40px}
+  .nav{display:none}
+  .mkt-pick{margin-left:auto}
+  .menu-btn{display:inline-flex;background:transparent;color:var(--ink)}
+  .menu-btn:hover{background:var(--ink);color:var(--sheet)}
+  .nav.is-open{display:flex;position:absolute;left:0;right:0;top:64px;flex-direction:column;gap:0;background:var(--sheet);border-bottom:1.5px solid var(--ink);padding:8px var(--gut) 16px;font-size:var(--s-21);font-stretch:108%}
+  .nav.is-open a{padding:12px 0;border-bottom:1px solid var(--rule-2)}
+}
+@media (max-width:620px){.head-cta{display:none}.mkt-pick .t{display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding-top:clamp(28px,3.4vw,44px)}
+.hero-top{display:grid;grid-template-columns:repeat(12,1fr);gap:16px 24px;align-items:end}
+.hero h1{grid-column:1/-1;font-size:clamp(2.5rem,4.25vw,3.875rem);line-height:1.02;font-weight:600;font-stretch:118%;letter-spacing:-.012em}
+.hero h1 span{display:inline}
+.hero h1 span:last-child{display:block} /* fixed line structure: no reflow when the webfont arrives */
+.hero .lede{grid-column:1/8;font-size:var(--s-21);line-height:1.5;max-width:40em}
+.hero .lic{grid-column:9/13;font-size:var(--s-15);color:var(--ink-2);line-height:1.5}
+.hero .lic a{color:var(--ink)}
+@media (max-width:900px){
+  .hero h1 span{display:block}
+  .hero .lede{grid-column:1/-1;font-size:var(--s-17)}
+  .hero .lic{grid-column:1/-1}
+}
+
+/* ---------- instrument ---------- */
+.instrument{margin-top:clamp(24px,2.6vw,32px);background:var(--sheet);border:1px solid #B5BDC2;border-radius:16px;box-shadow:inset 0 1px 0 #fff,0 2px 0 #D3D8D9}
+.inst-head{display:flex;align-items:center;gap:14px 28px;flex-wrap:wrap;padding:16px 28px;border-bottom:1px solid var(--rule)}
+.inst-head h2{font-size:var(--s-21);font-weight:600;font-stretch:110%;line-height:1.25;margin-right:auto}
+.setting{border:0;margin:0;padding:0;display:flex;align-items:center;gap:10px;min-width:0}
+.setting legend{float:left;font-size:var(--s-13);color:var(--ink-2);font-stretch:92%;margin-right:10px;padding:0}
+.inst-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"ctl top" "ctl stm"}
+.controls{grid-area:ctl;padding:22px 28px 26px;border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:20px}
+.ro-top{grid-area:top;padding:26px 28px 0;container-type:inline-size}
+.ro-stm{grid-area:stm;padding:0 28px 28px;display:flex;flex-direction:column}
+
+.scale-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:4px}
+.scale-head label{font-size:var(--s-15);font-weight:600}
+.val{font-size:var(--s-21);font-weight:600;font-stretch:96%;font-variant-numeric:tabular-nums lining-nums;display:flex;align-items:baseline;gap:3px;white-space:nowrap}
+.val input{font:inherit;color:inherit;width:4.2ch;text-align:right;border:0;border-bottom:1.5px solid var(--rule);background:transparent;padding:0 1px;-moz-appearance:textfield;appearance:textfield}
+.val input::-webkit-outer-spin-button,.val input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.val input:focus{outline:none;border-bottom-color:var(--ink)}
+.val input:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.val .u{font-size:var(--s-15);color:var(--ink-2);font-weight:500}
+
+.scale{--thumb:22px}
+.dial{position:relative;height:50px}
+.bed{position:absolute;left:calc(var(--thumb)/2);right:calc(var(--thumb)/2);top:0;bottom:0}
+.ticks{position:absolute;inset:0}
+.ticks i{position:absolute;bottom:22px;width:1px;height:7px;background:var(--rule);transform:translateX(-.5px)}
+.ticks i.maj{height:13px;background:var(--ink-2)}
+.track{position:absolute;left:0;right:0;bottom:16px;height:6px;background:var(--rule-2);border-radius:3px}
+.fill{position:absolute;left:0;bottom:16px;height:6px;border-radius:3px;background:var(--ink)}
+.fill.keep{background:var(--yellow);box-shadow:inset 0 0 0 1px var(--yellow-edge)}
+.band{position:absolute;bottom:22px;height:13px;background:repeating-linear-gradient(135deg,rgba(184,20,26,.18) 0 2px,transparent 2px 5px);border-left:1px solid var(--red-text);border-right:1px solid var(--red-text)}
+.mark{position:absolute;bottom:10px;width:2px;height:30px;background:var(--ink);transform:translateX(-1px)}
+.mark::before{content:"";position:absolute;top:-5px;left:-4px;width:10px;height:10px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 1.5px var(--ink)}
+.dial input[type=range]{position:absolute;left:0;right:0;bottom:6px;width:100%;height:26px;margin:0;background:transparent;-webkit-appearance:none;appearance:none;cursor:pointer}
+.dial input[type=range]::-webkit-slider-runnable-track{height:26px;background:transparent}
+.dial input[type=range]::-moz-range-track{height:26px;background:transparent}
+.dial input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:var(--thumb);height:var(--thumb);margin-top:2px;border-radius:50%;background:var(--ink);border:0;box-shadow:inset 0 0 0 6px var(--ink),inset 0 0 0 11px var(--yellow)}
+.dial input[type=range]::-moz-range-thumb{width:var(--thumb);height:var(--thumb);border-radius:50%;background:var(--yellow);border:6px solid var(--ink);box-sizing:border-box}
+.dial input[type=range]:focus{outline:none}
+.dial input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:inset 0 0 0 6px var(--ink),inset 0 0 0 11px var(--yellow),0 0 0 3px var(--sheet),0 0 0 5px var(--ink)}
+.dial input[type=range]:focus-visible::-moz-range-thumb{box-shadow:0 0 0 3px var(--sheet),0 0 0 5px var(--ink)}
+.legend{position:relative;height:20px;margin-inline:calc(var(--thumb)/2);font-size:var(--s-13);color:var(--ink-2);font-variant-numeric:tabular-nums lining-nums;font-stretch:92%}
+.legend span{position:absolute;top:0;transform:translateX(-50%);white-space:nowrap}
+.legend span.l{transform:none}
+.legend span.r{transform:translateX(-100%)}
+.legend span.on{color:var(--ink);font-weight:700}
+@media (max-width:520px){.legend span.minor{display:none}}
+.keys{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px;font-size:var(--s-13);color:var(--ink-2);line-height:1.4}
+.keys span{display:inline-flex;align-items:center;gap:7px}
+.k{flex:none;display:inline-block;width:14px;height:8px;border-radius:2px}
+.k-keep{background:var(--yellow);box-shadow:inset 0 0 0 1px var(--yellow-edge)}
+.k-band{background:repeating-linear-gradient(135deg,rgba(184,20,26,.32) 0 2px,transparent 2px 5px);box-shadow:inset 0 0 0 1px var(--red-text)}
+.k-mark{width:10px;height:10px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 1.5px var(--ink)}
+.rate-note{font-size:var(--s-15);color:var(--ink-2);line-height:1.5;padding-top:16px;border-top:1px solid var(--rule-2)}
+.rate-note strong{color:var(--ink);font-weight:600}
+
+.ro-label{font-size:var(--s-15);font-weight:600}
+.ro-label sup{font-size:.72em;line-height:0}
+.ro-label sup a{text-decoration:none;padding:0 2px}
+.ro-fig{display:flex;align-items:baseline;gap:.16em;margin-top:6px;font-size:clamp(2.5rem,14.5cqi,5.5rem);line-height:1;font-weight:500;font-stretch:96%;letter-spacing:-.015em;font-variant-numeric:tabular-nums lining-nums;white-space:nowrap}
+.ro-fig .c{font-size:.34em;font-weight:600;letter-spacing:.02em;align-self:flex-start;margin-top:.24em;color:var(--ink-2)}
+.ro-fig .per{font-size:.25em;font-weight:500;letter-spacing:0;color:var(--ink-2)}
+.ro-pct{display:flex;align-items:center;gap:12px;margin-top:14px;font-size:var(--s-15);font-weight:600;min-height:24px}
+.meter{flex:none;width:96px;height:10px;border-radius:5px;background:var(--rule-2);overflow:hidden;position:relative}
+.meter b{position:absolute;inset:0 auto 0 0;background:var(--yellow);box-shadow:inset 0 0 0 1px var(--yellow-edge);border-radius:5px}
+.statement{margin-top:22px;font-size:var(--s-15);font-variant-numeric:tabular-nums lining-nums}
+.statement th{text-align:left;font-weight:500;padding:8px 0}
+.statement td{text-align:right;padding:8px 0;white-space:nowrap}
+.statement thead th{font-size:var(--s-13);color:var(--ink-2);padding:0 0 6px;border-bottom:1px solid var(--rule)}
+.statement thead th:last-child{text-align:right}
+.statement tbody tr+tr>*{border-top:1px solid var(--rule-2)}
+.statement .cost td{color:var(--red-text)}
+.statement .sub>*{border-top:1px solid var(--ink)!important;font-weight:600}
+.statement tfoot>tr>*{font-weight:700;font-size:var(--s-17);padding-top:10px;padding-bottom:8px;border-bottom:3px double var(--ink)}
+.statement .x{color:var(--ink-2);font-weight:500;font-size:var(--s-13);margin-right:8px}
+.ro-actions{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin-top:auto;padding-top:24px}
+.ro-actions a:not(.btn){font-size:var(--s-15);font-weight:500}
+.footnote{padding:14px 28px 16px;border-top:1px solid var(--rule);font-size:var(--s-13);color:var(--ink-2);line-height:1.5}
+.footnote p{max-width:80em}
+
+@media (max-width:900px){
+  .inst-head{padding:16px 18px;gap:12px}
+  .inst-head h2{width:100%}
+  .setting{width:100%}
+  .setting legend{width:5.2em;margin-right:0;flex:none}
+  .setting .seg{flex:1}
+  .seg span{padding:9px 4px}
+  .inst-body{grid-template-columns:1fr;grid-template-areas:"top" "ctl" "stm"}
+  .ro-top{padding:20px 18px 18px;border-bottom:1px solid var(--rule)}
+  .controls{border-right:0;padding:20px 18px 22px;gap:22px}
+  .ro-stm{padding:0 18px 22px;border-top:1px solid var(--rule)}
+  .footnote{padding:14px 18px 16px}
+}
+
+/* ---------- section scaffolding ---------- */
+.sec{padding-top:var(--sec)}
+.sec-head{display:grid;grid-template-columns:repeat(12,1fr);gap:14px 24px;padding-top:18px;border-top:1.5px solid var(--ink);margin-bottom:clamp(28px,4vw,44px)}
+.sec-head h2{grid-column:1/8;font-size:clamp(1.75rem,2.8vw,2.375rem);line-height:1.12;font-weight:600;font-stretch:112%;letter-spacing:-.005em}
+.sec-head p{grid-column:8/13;font-size:var(--s-17);color:var(--ink-2);max-width:36em;padding-top:4px}
+.mk-name{white-space:nowrap}
+@media (max-width:900px){.sec-head h2,.sec-head p{grid-column:1/-1}}
+
+/* ---------- router (jobs -> products) ---------- */
+.router h3.grp{font-size:var(--s-15);font-weight:600;color:var(--ink-2);padding:28px 0 10px;border-bottom:1px solid var(--ink)}
+.router h3.grp:first-child{padding-top:0}
+.job{border-bottom:1px solid var(--rule)}
+.job summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,4fr) 190px 150px 28px;gap:20px;align-items:center;padding:18px 0}
+.job summary::-webkit-details-marker{display:none}
+.job summary:hover .jt{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:.2em}
+.job summary:focus-visible{outline-offset:0}
+.jt{font-size:var(--s-21);font-weight:600;font-stretch:108%;line-height:1.25}
+.jp b{display:block;font-weight:700;font-size:var(--s-15)}
+.jp span{display:block;color:var(--ink-2);font-size:var(--s-15);line-height:1.4}
+.avail{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--rule);border-radius:4px;font-size:var(--s-12);font-weight:600;font-stretch:92%;text-align:center}
+.avail span{padding:4px 0 6px;display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--ink-2)}
+.avail span+span{border-left:1px solid var(--rule-2)}
+.avail i{display:block;width:10px;height:10px;border-radius:50%}
+.avail .y i{background:var(--yellow);box-shadow:0 0 0 1.5px var(--ink)}
+.avail .n i{width:10px;height:1.5px;margin-block:4px;background:var(--rule);border-radius:0}
+.avail .x i{background:transparent;box-shadow:inset 0 0 0 1.5px var(--ink-2)}
+.avail .sel{background:var(--ink);color:var(--sheet)}
+.avail .sel.n i{background:#7D8A98}
+.avail .sel.x i{box-shadow:inset 0 0 0 1.5px var(--sheet)}
+.status{font-size:var(--s-15);font-weight:600;line-height:1.3}
+.status.no{color:var(--ink-2);font-weight:500}
+.tog{width:28px;height:28px;border:1.5px solid var(--ink);border-radius:50%;position:relative;justify-self:end}
+.tog::before,.tog::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;background:var(--ink);transform:translate(-50%,-50%)}
+.tog::after{transform:translate(-50%,-50%) rotate(90deg)}
+.job[open] .tog::after{display:none}
+.job[open] .tog{background:var(--ink)}
+.job[open] .tog::before{background:var(--sheet)}
+.jd{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px;padding:4px 0 28px}
+.jd .feat li{position:relative;padding:6px 0 6px 18px;border-top:1px solid var(--rule-2);font-size:var(--s-15)}
+.jd .feat li:first-child{border-top:0}
+.jd .feat li::before{content:"";position:absolute;left:0;top:1.05em;width:8px;height:8px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 1.5px var(--ink)}
+.jd .feat b{font-weight:600}
+.jd .more{display:inline-block;margin-top:14px;font-size:var(--s-15);font-weight:600}
+.media{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.media figure{display:flex;flex-direction:column;gap:10px}
+.media .disc{aspect-ratio:1;border-radius:50%;overflow:hidden;background:#DCE0DE;max-width:180px}
+.media .disc img{width:100%;height:100%;object-fit:cover}
+.media .dev{aspect-ratio:1;max-width:180px}
+.media .dev img{width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply}
+.media figcaption{font-size:var(--s-13);color:var(--ink-2);line-height:1.45;max-width:24em}
+.media figcaption b{display:block;color:var(--ink);font-size:var(--s-15);font-stretch:110%}
+.media figcaption b.model{font-size:var(--s-28);font-stretch:125%;line-height:1;margin-bottom:4px;letter-spacing:-.01em}
+.mnote{grid-column:1/-1;font-size:var(--s-13);color:var(--ink-2);border-top:1px solid var(--rule-2);padding-top:10px}
+.media .phones{grid-column:1/-1;max-width:520px;aspect-ratio:1973/1379;overflow:hidden}
+.media .phones img{width:100%;height:100%;object-fit:cover;object-position:50% 35.8%}
+.solutions{margin-top:clamp(40px,5vw,56px);display:grid;grid-template-columns:repeat(12,1fr);gap:20px 24px;align-items:start}
+.solutions h3{grid-column:1/4;font-size:var(--s-21);font-weight:600;font-stretch:108%;line-height:1.25}
+.solutions ul{grid-column:4/13;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.solutions li{border-top:1.5px solid var(--ink);padding-top:10px}
+.solutions a{display:block;font-weight:700;text-decoration:none;font-size:var(--s-17)}
+.solutions a:hover{text-decoration:underline}
+.solutions span{display:block;font-size:var(--s-15);color:var(--ink-2);margin-top:4px;line-height:1.45}
+@media (max-width:1100px){
+  .job summary{grid-template-columns:minmax(0,1fr) 150px 28px;grid-template-areas:"jt av tg" "jp st tg";gap:6px 16px}
+  .jt{grid-area:jt}.jp{grid-area:jp}.avail{grid-area:av}.status{grid-area:st;font-size:var(--s-13)}.tog{grid-area:tg}
+}
+@media (max-width:900px){
+  .jd{grid-template-columns:1fr}
+  .solutions h3,.solutions ul{grid-column:1/-1}
+  .solutions ul{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .job summary{grid-template-columns:minmax(0,1fr) 28px;grid-template-areas:"jt tg" "jp tg" "av av" "st st";gap:4px 12px}
+  .avail{margin-top:10px;max-width:240px}
+  .jt{font-size:var(--s-17)}
+  .media{grid-template-columns:1fr 1fr;gap:16px}
+  .solutions ul{grid-template-columns:1fr}
+}
+
+/* ---------- licence certificate ---------- */
+.cert{background:var(--sheet);border:1px solid #B5BDC2;border-radius:16px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);overflow:hidden}
+.cert-l{padding:32px 32px 30px;border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:22px}
+.cert-r{padding:32px 32px 30px;display:flex;flex-direction:column;gap:22px}
+.cert .who{font-size:var(--s-13);color:var(--ink-2)}
+.cert .ent{font-size:clamp(1.5rem,2.3vw,2rem);line-height:1.15;font-weight:600;font-stretch:112%;margin-top:4px}
+.cert dl{margin:0;display:grid;grid-template-columns:7.5em 1fr;gap:10px 16px;font-size:var(--s-15)}
+.cert dt{color:var(--ink-2)}
+.cert dd{margin:0;font-weight:500}
+.cert dd b{font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips li{font-size:var(--s-13);font-weight:600;font-stretch:94%;padding:2px 8px;border:1px solid var(--ink);border-radius:4px;white-space:nowrap}
+.hist li{display:grid;grid-template-columns:3.4em 1fr;gap:12px;padding:8px 0;border-top:1px solid var(--rule-2);font-size:var(--s-15)}
+.hist li:first-child{border-top:1px solid var(--ink)}
+.hist b{font-variant-numeric:tabular-nums lining-nums;font-weight:700}
+.cert .disc-text{font-size:var(--s-15);line-height:1.6;color:var(--ink);max-width:62ch}
+.cert .disc-text.none{color:var(--ink-2)}
+.cert .office{display:grid;grid-template-columns:1fr auto;gap:12px 24px;align-items:end;margin-top:auto;padding-top:18px;border-top:1px solid var(--rule)}
+.cert address{font-style:normal;font-size:var(--s-15);color:var(--ink-2);line-height:1.5}
+.cert address a{color:var(--ink)}
+.network{margin-top:18px;display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+.network button{all:unset;cursor:pointer;padding:14px 16px;display:flex;flex-direction:column;gap:2px;border-left:1px solid var(--rule-2);background:transparent}
+.network button:first-child{border-left:0}
+.network button:hover{background:#E4E7E3}
+.network button:focus-visible{outline:2px solid var(--ink);outline-offset:-4px}
+.network b{font-size:var(--s-15);font-weight:700;font-stretch:108%}
+.network span{font-size:var(--s-13);color:var(--ink-2)}
+.network button[aria-pressed=true]{background:var(--ink);color:var(--sheet)}
+.network button[aria-pressed=true] span{color:#C7D0DA}
+@media (max-width:900px){
+  .cert{grid-template-columns:1fr}
+  .cert-l{border-right:0;border-bottom:1px solid var(--rule);padding:22px 18px}
+  .cert-r{padding:22px 18px}
+  .cert .office{grid-template-columns:1fr}
+  .network{grid-template-columns:repeat(3,1fr)}
+  .network button:nth-child(4){border-left:0}
+  .network button:nth-child(n+4){border-top:1px solid var(--rule-2)}
+  .network button{padding:12px}
+}
+
+/* ---------- assurance ---------- */
+.assure{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.assure .txt{grid-column:1/5}
+.assure .txt p{color:var(--ink-2);max-width:32em}
+.assure .txt p.big{color:var(--ink);font-size:var(--s-21);line-height:1.45;margin-bottom:12px}
+.std{grid-column:6/13;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.std li{display:flex;flex-direction:column;align-items:center;gap:10px}
+.std .badge{width:100%;max-width:140px;aspect-ratio:1;border-radius:50%;background:var(--sheet);border:1px solid var(--rule);display:grid;place-items:center;padding:7%}
+.std img{width:100%;height:100%;object-fit:contain}
+.std span{font-size:var(--s-13);font-weight:600;text-align:center;font-stretch:96%}
+.std .also{grid-column:1/-1;align-items:flex-start;font-size:var(--s-13);color:var(--ink-2);border-top:1px solid var(--rule);padding-top:12px}
+.clients-h{margin-top:clamp(48px,6vw,72px);font-size:var(--s-15);font-weight:600;color:var(--ink-2);padding-bottom:10px}
+.clients{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--rule)}
+.clients li{display:flex;align-items:center;justify-content:center;height:108px;padding:18px 20px}
+.clients li+li{border-left:1px solid var(--rule-2)}
+.clients img{width:auto;max-width:100%;mix-blend-mode:multiply;filter:grayscale(1) contrast(1.2);opacity:.86}
+@media (max-width:900px){
+  .assure .txt,.std{grid-column:1/-1}
+  .std{grid-template-columns:repeat(2,1fr);gap:20px 16px}
+  .clients{grid-template-columns:repeat(3,1fr)}
+  .clients li:nth-child(4){border-left:0}
+  .clients li:nth-child(n+4){border-top:1px solid var(--rule-2)}
+  .clients li{height:84px;padding:12px}
+  .clients img{transform:scale(.8)}
+}
+
+/* ---------- the record ---------- */
+.record{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.record .side{grid-column:1/5;display:flex;flex-direction:column;gap:28px}
+.record .side p{color:var(--ink-2);max-width:30em}
+.vision blockquote{margin:0;color:var(--ink);font-size:var(--s-21);line-height:1.45;padding-left:18px;border-left:3px solid var(--yellow)}
+.vision figcaption{margin-top:10px;padding-left:21px;font-size:var(--s-13);color:var(--ink-2)}
+.board h3{font-size:var(--s-13);font-weight:600;color:var(--ink-2);padding-bottom:8px;border-bottom:1px solid var(--ink)}
+.board li{display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--rule-2)}
+.board img{width:56px;height:56px;border-radius:50%;object-fit:cover}
+.board b{display:block;font-weight:700;font-stretch:106%}
+.board span{font-size:var(--s-15);color:var(--ink-2)}
+.co-links{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:var(--s-15);font-weight:600}
+.years{grid-column:6/13}
+.years>li{display:grid;grid-template-columns:5.5rem 1fr;gap:4px 20px;padding:16px 0;border-top:1px solid var(--rule)}
+.years>li:first-child{border-top:1.5px solid var(--ink)}
+.years>li:last-child{border-bottom:1px solid var(--rule)}
+.years>li>ul{grid-column:2}
+.years b{font-size:var(--s-28);line-height:1;font-weight:600;font-stretch:112%;font-variant-numeric:tabular-nums lining-nums}
+.years p{font-size:var(--s-17);max-width:44em}
+.years ul{margin-top:4px}
+.years ul li{display:block;border:0!important;padding:4px 0 4px 18px;position:relative;font-size:var(--s-15);color:var(--ink-2)}
+.years ul li::before{content:"";position:absolute;left:0;top:.85em;width:8px;height:8px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 1.5px var(--ink)}
+@media (max-width:900px){
+  .record .side,.years{grid-column:1/-1}
+  .years>li{grid-template-columns:4rem 1fr;gap:4px 14px}
+  .years b{font-size:var(--s-21)}
+}
+
+/* ---------- insights ---------- */
+.ledger>li{display:grid;grid-template-columns:140px 90px minmax(0,1fr) 200px;gap:24px;align-items:start;padding:20px 0;border-top:1px solid var(--rule)}
+.ledger>li:first-child{border-top:1.5px solid var(--ink)}
+.ledger>li:last-child{border-bottom:1px solid var(--rule)}
+.ledger time{font-variant-numeric:tabular-nums lining-nums;font-weight:600;font-size:var(--s-15);padding-top:3px}
+.ledger .ty{font-size:var(--s-15);color:var(--ink-2);padding-top:3px}
+.ledger h3{font-size:var(--s-21);font-weight:600;font-stretch:104%;line-height:1.3}
+.ledger h3 a{text-decoration:none}
+.ledger h3 a:hover{text-decoration:underline}
+.ledger p{color:var(--ink-2);margin-top:6px;font-size:var(--s-15);max-width:46em}
+.ledger img{width:200px;aspect-ratio:16/9;object-fit:cover;border-radius:6px;background:var(--rule-2)}
+.more-row{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px 24px;font-size:var(--s-15);font-weight:600}
+@media (max-width:900px){
+  .ledger>li{grid-template-columns:minmax(0,1fr) 104px;gap:4px 16px}
+  .ledger .meta{grid-column:1;display:flex;gap:12px}
+  .ledger time,.ledger .ty{font-size:var(--s-13);padding:0}
+  .ledger .body{grid-column:1;grid-row:2}
+  .ledger img{grid-column:2;grid-row:1/3;width:104px}
+  .ledger h3{font-size:var(--s-17)}
+  .ledger p{display:none}
+}
+@media (min-width:901px){.ledger .meta{display:contents}}
+
+/* ---------- close + footer ---------- */
+.close{margin-top:var(--sec);background:var(--night);color:#E6EAEE}
+.close :focus-visible{outline-color:var(--yellow)}
+.cta{padding-block:clamp(64px,8vw,104px) clamp(48px,6vw,72px);display:grid;grid-template-columns:repeat(12,1fr);gap:28px 24px;align-items:start;border-bottom:1px solid var(--night-rule)}
+.cta-l{grid-column:1/8;display:flex;flex-direction:column;gap:28px}
+.cta h2{font-size:clamp(2.5rem,5vw,4.5rem);line-height:1.02;font-weight:600;font-stretch:120%;letter-spacing:-.012em;color:#fff}
+.cta .lede{font-size:var(--s-21);color:var(--night-text);max-width:30em}
+.contacts{grid-column:9/13;display:flex;flex-direction:column;gap:0;border-top:1px solid #fff}
+.contacts>div{padding:14px 0;border-bottom:1px solid var(--night-rule)}
+.contacts h3{font-size:var(--s-13);font-weight:500;color:var(--night-text)}
+.contacts p{font-size:var(--s-15);color:#fff;margin-top:2px}
+.contacts a{color:#fff}
+.contacts .btn{margin-top:20px;align-self:flex-start;color:var(--ink)}
+@media (max-width:900px){.cta-l,.contacts{grid-column:1/-1}}
+.foot{padding-block:48px 40px;display:grid;grid-template-columns:repeat(12,1fr);gap:32px 24px}
+.foot .brand{grid-column:1/4}
+.foot .brand img{height:52px;width:auto}
+.foot .brand address{font-style:normal;font-size:var(--s-13);color:#B8C3CE;margin-top:16px;line-height:1.6;max-width:24em}
+.foot nav{grid-column:4/13;display:grid;grid-template-columns:repeat(6,1fr);gap:24px}
+.foot h3{font-size:var(--s-13);font-weight:600;color:#fff;margin-bottom:10px;font-stretch:104%}
+.foot nav li{font-size:var(--s-13);line-height:1.4;padding:4px 0}
+.foot nav a{text-decoration:none;color:var(--night-text)}
+.foot nav a:hover{color:#fff;text-decoration:underline}
+.disclose{grid-column:1/-1;border-top:1px solid var(--night-rule);padding-top:24px;columns:2;column-gap:40px;font-size:var(--s-12);line-height:1.6;color:#AEB8C4}
+.disclose p{break-inside:avoid;margin-bottom:12px}
+.disclose p:first-child{column-span:all;font-size:var(--s-13);color:#E6EAEE;margin-bottom:16px}
+.legal{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;border-top:1px solid var(--night-rule);padding-top:20px;font-size:var(--s-13);color:#AEB8C4}
+.legal ul{display:flex;gap:20px;flex-wrap:wrap}
+.legal a{color:var(--night-text)}
+@media (max-width:1000px){.foot nav{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:900px){.foot .brand,.foot nav{grid-column:1/-1}.disclose{columns:1}}
+@media (max-width:560px){.foot nav{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- persistent readout ---------- */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--ink);color:var(--sheet);transform:translateY(105%);transition:transform .28s ease;border-top:3px solid var(--yellow)}
+.dock.on{transform:none}
+.dock .wrap{display:flex;align-items:center;gap:12px 24px;min-height:64px;padding-block:8px}
+.dock .l{font-size:var(--s-13);color:#C7D0DA;line-height:1.3}
+.dock .v{font-size:var(--s-21);font-weight:600;font-variant-numeric:tabular-nums lining-nums;white-space:nowrap}
+.dock .v small{font-size:var(--s-13);font-weight:500;color:#C7D0DA}
+.dock .sp{margin-left:auto;display:flex;gap:16px;align-items:center}
+.dock .adj{color:#fff;font-size:var(--s-15);font-weight:600}
+.dock .btn{min-height:40px;padding:0 16px}
+.dock :focus-visible{outline-color:var(--yellow)}
+@media (max-width:620px){.dock .l .ex{display:none}.dock .adj{display:none}.dock .v{font-size:var(--s-17)}}
+@media (prefers-reduced-motion:reduce){.dock{transition:none}}
+</style>
+<meta name="robots" content="noindex, nofollow"><script>addEventListener("load",function(){setTimeout(function(){var b=document.createElement("div");b.setAttribute("role","note");b.textContent="Design concept for Pay10. Not the official website.";b.style.cssText="position:fixed;left:12px;bottom:12px;z-index:2147483647;background:#111;color:#fff;font:500 12px/1.35 system-ui,sans-serif;padding:7px 10px;border-radius:6px;opacity:.9;pointer-events:none;max-width:calc(100vw - 24px)";document.body.appendChild(b)},400)})</script></head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="Pay10 Global home"><img src="../assets/logo.png" alt="Pay10" width="79" height="48"></a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#record">Company</a>
+      <a href="#products">Products</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#markets">Markets</a>
+      <a href="#insights">Insights</a>
+    </nav>
+    <label class="mkt-pick"><span class="t">Market</span>
+      <select id="mktSelect" aria-label="Your market">
+        <option value="in">India</option>
+        <option value="ae" selected>UAE</option>
+        <option value="bh">Bahrain</option>
+        <option value="ma">Morocco</option>
+        <option value="eu">Hungary (EU)</option>
+      </select>
+    </label>
+    <a class="btn head-cta" href="#contact">Contact us</a>
+    <button class="btn menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  </div>
+</header>
+
+<main id="main">
+  <!-- 1. The instrument -->
+  <section class="hero wrap" aria-labelledby="hero-h">
+    <div class="hero-top">
+      <h1 id="hero-h"><span>One platform.</span> <span>Every payment.</span> <span>Anywhere</span></h1>
+      <p class="lede">Where most fintechs specialise in one thing, Pay10 unifies them all: consumer, merchant, online, and in-person payments, on regulated infrastructure licensed across multiple markets.</p>
+      <p class="lic">Set your market and the whole page follows: what’s live, who regulates it, and who to call. <a href="#markets">See the licences</a></p>
+    </div>
+
+    <section class="instrument" id="calculator" aria-labelledby="calc-h">
+      <div class="inst-head">
+        <h2 id="calc-h">See how much stays in your business</h2>
+        <fieldset class="setting">
+          <legend>Market</legend>
+          <div class="seg" id="mktSeg">
+            <label><input type="radio" name="mkt" value="in"><span title="India">IN</span></label>
+            <label><input type="radio" name="mkt" value="ae" checked><span title="United Arab Emirates">AE</span></label>
+            <label><input type="radio" name="mkt" value="bh"><span title="Bahrain">BH</span></label>
+            <label><input type="radio" name="mkt" value="ma"><span title="Morocco">MA</span></label>
+            <label><input type="radio" name="mkt" value="eu"><span title="Hungary (EU)">EU</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="setting">
+          <legend>Currency</legend>
+          <div class="seg">
+            <label><input type="radio" name="ccy" value="AED" checked><span>AED</span></label>
+            <label><input type="radio" name="ccy" value="USD"><span>USD</span></label>
+            <label><input type="radio" name="ccy" value="EUR"><span>EUR</span></label>
+            <label><input type="radio" name="ccy" value="GBP"><span>GBP</span></label>
+            <label><input type="radio" name="ccy" value="INR"><span>INR</span></label>
+            <label><input type="radio" name="ccy" value="SAR"><span>SAR</span></label>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="inst-body">
+        <div class="controls">
+          <div class="scale" id="sc-vol">
+            <div class="scale-head">
+              <label for="vol">Monthly processing volume</label>
+              <output class="val" for="vol"><span class="cc">AED</span>&nbsp;<span id="volTxt">10M</span></output>
+            </div>
+            <div class="dial">
+              <div class="bed"><div class="ticks" data-ticks></div><div class="track"></div><div class="fill" id="volFill" style="width:40%"></div></div>
+              <input type="range" id="vol" min="0" max="5" step="1" value="2" aria-valuetext="AED 10 million">
+            </div>
+            <div class="legend" id="volLegend" aria-hidden="true"></div>
+          </div>
+
+          <div class="scale" id="sc-share">
+            <div class="scale-head">
+              <label for="share">Share routed to Pay10</label>
+              <span class="val"><input type="number" id="shareNum" min="1" max="100" step="1" value="10" inputmode="numeric" aria-label="Share routed to Pay10, in percent"><span class="u">%</span></span>
+            </div>
+            <div class="dial">
+              <div class="bed"><div class="ticks" data-ticks></div><div class="track"></div><div class="fill" id="shareFill" style="width:9.1%"></div></div>
+              <input type="range" id="share" min="1" max="100" step="1" value="10" aria-valuetext="10 percent">
+            </div>
+            <div class="legend" id="shareLegend" aria-hidden="true"></div>
+          </div>
+
+          <div class="scale" id="sc-mdr">
+            <div class="scale-head">
+              <label for="mdr">Your current MDR</label>
+              <span class="val"><input type="number" id="mdrNum" min="0.5" max="4" step="0.05" value="2.50" inputmode="decimal" aria-label="Your current MDR, in percent"><span class="u">%</span></span>
+            </div>
+            <div class="dial">
+              <div class="bed">
+                <div class="ticks" data-ticks></div>
+                <div class="band" id="mdrBand" style="left:14.29%;width:57.14%"></div>
+                <div class="track"></div>
+                <div class="fill keep" id="mdrFill" style="left:4.29%;width:52.86%"></div>
+                <div class="mark" id="mdrMark" style="left:4.29%"></div>
+              </div>
+              <input type="range" id="mdr" min="0.5" max="4" step="0.05" value="2.5" aria-valuetext="2.50 percent" aria-describedby="mdrKeys">
+            </div>
+            <div class="legend" id="mdrLegend" aria-hidden="true"></div>
+            <p class="keys" id="mdrKeys">
+              <span><i class="k k-mark" aria-hidden="true"></i>Pay10 rate, from ~0.65%</span>
+              <span><i class="k k-band" aria-hidden="true"></i>Common acceptance cost, 1–3%</span>
+              <span><i class="k k-keep" aria-hidden="true"></i>The difference you keep</span>
+            </p>
+          </div>
+          <p class="rate-note"><strong>The Pay10 rate:</strong> competitive MDR from ~0.65%, with near-real-time settlement. Final pricing reflects your market and business profile.</p>
+        </div>
+
+        <div class="ro-top">
+          <p class="ro-label">You keep<sup><a href="#fn-calc" aria-label="Note on how this is calculated">1</a></sup></p>
+          <p class="ro-fig"><span class="c cc">AED</span><span id="yearly">222,000</span><span class="per">/ year</span></p>
+          <p class="ro-pct"><span class="meter" aria-hidden="true"><b id="pctBar" style="width:74%"></b></span><span id="pctTxt">74% lower than your current cost</span></p>
+        </div>
+
+        <div class="ro-stm">
+          <table class="statement">
+            <caption class="sr-only">Monthly breakdown</caption>
+            <thead><tr><th scope="col">Per month</th><th scope="col"><span class="cc">AED</span></th></tr></thead>
+            <tbody>
+              <tr><th scope="row" id="lbVol">Volume on Pay10 (10%)</th><td id="rVol">1,000,000</td></tr>
+              <tr class="cost"><th scope="row" id="lbFee">Your fee (2.50%)</th><td id="rFee">25,000</td></tr>
+              <tr><th scope="row">Less Pay10 fee (~0.65%)</th><td id="rP10">(6,500)</td></tr>
+              <tr class="sub"><th scope="row">You keep / month</th><td id="rMon">18,500</td></tr>
+            </tbody>
+            <tfoot><tr><th scope="row">You keep / year</th><td><span class="x">× 12</span><span id="rYear">222,000</span></td></tr></tfoot>
+          </table>
+          <div class="ro-actions">
+            <a class="btn" href="#contact"><span class="rd" aria-hidden="true"></span>Talk to us</a>
+            <a href="mailto:globalsales@pay10.com?subject=Pay10%20Solution%20Enquiry">Ask for an exact quote</a>
+          </div>
+        </div>
+      </div>
+      <div class="footnote" id="fn-calc"><p><sup>1</sup> Indicative only, based on the values you enter. Acceptance costs commonly fall between 1–3%; Pay10’s rates start from around 0.65% with near-real-time settlement, with final pricing tailored to your market, volume and business profile. For an exact quote, talk to our team.</p></div>
+    </section>
+    <p class="sr-only" aria-live="polite" id="live"></p>
+  </section>
+
+  <!-- 2. Router: what you need to do -> what runs it -->
+  <section class="sec wrap" id="products" aria-labelledby="pr-h">
+    <div class="sec-head">
+      <h2 id="pr-h">What you can run in <span class="mk-name">the UAE</span></h2>
+      <p>Start from the job, not the product name. Each line shows where it’s live today; open one to see what it covers.</p>
+    </div>
+
+    <div class="router">
+      <h3 class="grp">For businesses</h3>
+
+      <details class="job" data-avail="in ae bh ma" open>
+        <summary>
+          <span class="jt">Get paid online</span>
+          <span class="jp"><b>Payment Gateway</b><span>Online acceptance, built for builders</span></span>
+          <span class="avail" aria-hidden="true"></span>
+          <span class="status"></span>
+          <span class="tog" aria-hidden="true"></span>
+        </summary>
+        <div class="jd">
+          <div>
+            <ul class="feat">
+              <li><b>Flexible integration.</b> Go live with the model that fits your stack: hosted, merchant-hosted, or server-to-server.</li>
+              <li><b>Developer-centric.</b> Clean APIs, web and mobile SDKs, and a full sandbox.</li>
+              <li><b>Real-time webhooks.</b> Stay synchronized with instant event notifications.</li>
+            </ul>
+            <a class="more" href="#">Payment Gateway</a>
+          </div>
+          <div class="media">
+            <figure><div class="disc"><img src="../assets/method-pay-with-pay10.webp" alt="A customer approving a Pay with Pay10 payment on a phone" width="180" height="180" loading="lazy" decoding="async"></div><figcaption><b>Pay with Pay10</b>Customers approve with a fingerprint or PIN, cleared in seconds.</figcaption></figure>
+            <figure><div class="disc"><img src="../assets/method-pay-by-bank.webp" alt="A Pay by Bank payment on a phone" width="180" height="180" loading="lazy" decoding="async"></div><figcaption><b>Pay by Bank</b>Money direct from the bank. No cards, real-time, lower cost.</figcaption></figure>
+            <p class="mnote">Checkout methods live in India, the UAE and Bahrain.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="job" data-avail="in ae bh ma">
+        <summary>
+          <span class="jt">Get paid in person</span>
+          <span class="jp"><b>Payment Devices</b><span>In-person payments, fully managed</span></span>
+          <span class="avail" aria-hidden="true"></span>
+          <span class="status"></span>
+          <span class="tog" aria-hidden="true"></span>
+        </summary>
+        <div class="jd">
+          <div>
+            <ul class="feat">
+              <li><b>QR Payments.</b> Your Pay10 device generates a QR code for the exact amount, the customer scans, and it’s done. Live in India, the UAE and Bahrain.</li>
+              <li><b>Managed fleet.</b> Provision, configure, monitor, and update every device, remotely.</li>
+              <li><b>Support included.</b> Deployment and maintenance, handled across your fleet.</li>
+            </ul>
+            <a class="more" href="#">Payment Devices</a>
+          </div>
+          <div class="media">
+            <figure><div class="dev"><img src="../assets/device-pos10.jpg" alt="POS10 handheld terminal showing a QR code" width="180" height="180" loading="lazy" decoding="async"></div><figcaption><b class="model">POS10</b>Smart, simple, and secure QR payments for every counter.</figcaption></figure>
+            <figure><div class="dev"><img src="../assets/device-p5.jpg" alt="P5 countertop payment device" width="180" height="180" loading="lazy" decoding="async"></div><figcaption><b class="model">P5</b>Elegant design meets advanced payment capability.</figcaption></figure>
+            <figure><div class="dev"><img src="../assets/device-p10.jpg" alt="P10 portable payment device" width="180" height="180" loading="lazy" decoding="async"></div><figcaption><b class="model">P10</b>Rugged mobility for payments on the go.</figcaption></figure>
+          </div>
+        </div>
+      </details>
+
+      <details class="job" data-avail="ae bh">
+        <summary>
+          <span class="jt">Run the shop from your phone</span>
+          <span class="jp"><b>Merchant App</b><span>Your business, in your pocket</span></span>
+          <span class="avail" aria-hidden="true"></span>
+          <span class="status"></span>
+          <span class="tog" aria-hidden="true"></span>
+        </summary>
+        <div class="jd">
+          <div>
+            <ul class="feat">
+              <li><b>Payment acceptance.</b> Accept payments wherever your customers choose to pay.</li>
+              <li><b>Real-time balance.</b> Monitor collections and refunds through a unified view.</li>
+              <li><b>Flexible withdrawals.</b> Move funds to your bank account whenever required.</li>
+            </ul>
+            <a class="more" href="#">Merchant App</a>
+          </div>
+          <div class="media"><div class="phones"><img src="../assets/home-quad-phone.webp" alt="Four screens of the Pay10 apps" width="520" height="363" loading="lazy" decoding="async"></div></div>
+        </div>
+      </details>
+
+      <details class="job" data-avail="in ae bh ma">
+        <summary>
+          <span class="jt">See every transaction and settlement</span>
+          <span class="jp"><b>Merchant Portal</b><span>Your business, in full view</span></span>
+          <span class="avail" aria-hidden="true"></span>
+          <span class="status"></span>
+          <span class="tog" aria-hidden="true"></span>
+        </summary>
+        <div class="jd">
+          <div>
+            <ul class="feat">
+              <li><b>Unified dashboard.</b> Transactions, balances, settlements and performance in one view.</li>
+              <li><b>Settlement clarity.</b> Track every settlement, end to end.</li>
+              <li><b>Real-time alerts.</b> Timely notifications so you can act quickly.</li>
+            </ul>
+            <a class="more" href="#">Merchant Portal</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="job" data-avail="xb">
+        <summary>
+          <span class="jt">Collect from customers abroad</span>
+          <span class="jp"><b>Pay10 World</b><span>Collect worldwide, settle in yours</span></span>
+          <span class="avail" aria-hidden="true"></span>
+          <span class="status"></span>
+          <span class="tog" aria-hidden="true"></span>
+        </summary>
+        <div class="jd">
+          <div>
+            <ul class="feat">
+              <li><b>100+ currencies supported.</b> Let customers pay in their preferred currency, wherever they are.</li>
+              <li><b>Settle in your currency.</b> Funds arrive in the currency that suits your business, straight to your bank.</li>
+              <li><b>UPI for global merchants.</b> Accept from Indian customers in INR and settle in your preferred foreign currency.</li>
+            </ul>
+            <a class="more" href="#">Pay10 World</a>
+          </div>
+        </div>
+      </details>
+
+      <h3 class="grp">For people</h3>
+
+      <details class="job" data-avail="ae bh">
+        <summary>
+          <span class="jt">Pay, send and manage everyday money</span>
+          <span class="jp"><b>Consumer App</b><span>Everyday money, simplified</span></span>
+          <span class="avail" aria-hidden="true"></span>
+          <span class="status"></span>
+          <span class="tog" aria-hidden="true"></span>
+        </summary>
+        <div class="jd">
+          <div>
+            <ul class="feat">
+              <li><b>Pay anyone, instantly.</b> Real-time transfers using a mobile number.</li>
+              <li><b>QR payments.</b> Fast and secure payments with a single scan.</li>
+              <li><b>Bills and balances.</b> One intuitive place for both.</li>
+            </ul>
+            <a class="more" href="#">Consumer App</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="job" data-avail="in ae bh ma">
+        <summary>
+          <span class="jt">Send money to family abroad</span>
+          <span class="jp"><b>International Transfers</b><span>Money across the world, as simple as across the street</span></span>
+          <span class="avail" aria-hidden="true"></span>
+          <span class="status"></span>
+          <span class="tog" aria-hidden="true"></span>
+        </summary>
+        <div class="jd">
+          <div>
+            <ul class="feat">
+              <li><b>Complete cost transparency.</b> See the rate, the fee, and exactly what your recipient gets, before you confirm.</li>
+              <li><b>Real-time tracking.</b> Follow every stage of your transfer, through to delivery.</li>
+            </ul>
+            <a class="more" href="#">International Transfers</a>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <div class="solutions" id="solutions">
+      <h3>Or start from the kind of business you run</h3>
+      <ul>
+        <li><a href="#">For SMEs</a><span>The alternative payment method built for lower costs and instant settlement</span></li>
+        <li><a href="#">For Large Enterprises</a><span>The payment method that scales with your business</span></li>
+        <li><a href="#">For Multinationals</a><span>One payment partner for every market you operate</span></li>
+        <li><a href="#">Digital Assets</a><span>The regulated fiat rails for digital businesses</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3. Licence certificate for the selected market -->
+  <section class="sec wrap" id="markets" aria-labelledby="mk-h">
+    <div class="sec-head">
+      <h2 id="mk-h">Who regulates Pay10 in <span class="mk-name">the UAE</span></h2>
+      <p>Pay10 Global is the parent company behind a connected network of regulated payment businesses. One partnership opens access to every market below.</p>
+    </div>
+    <article class="cert">
+      <div class="cert-l">
+        <div>
+          <p class="who" id="cName">Pay10 UAE</p>
+          <h3 class="ent" id="cEntity">Pay Ten Payment Services Provider L.L.C</h3>
+        </div>
+        <dl>
+          <dt>Regulator</dt><dd id="cReg"><b>Central Bank of the UAE</b> (CBUAE)</dd>
+          <dt>Licences</dt><dd><ul class="chips" id="cLic"><li>Open Finance</li><li>RPS – Cat II</li><li>SVF</li></ul></dd>
+        </dl>
+        <ol class="hist" id="cHist">
+          <li><b>2023</b><span>Headquarters opened in Dubai</span></li>
+          <li><b>2024</b><span>SVF and RPSCS licenses from the Central Bank of the UAE</span></li>
+          <li><b>2025</b><span>Open Finance Payment Initiation approval from the Central Bank of the UAE</span></li>
+        </ol>
+      </div>
+      <div class="cert-r">
+        <p class="disc-text" id="cDisc">PAY TEN PAYMENT SERVICES PROVIDER L.L.C (“Pay10 UAE”) is licensed and regulated by the Central Bank of the UAE (“CBUAE”) and holds an Open Finance Licence (APM, POS), Retail Payment Services (RPS – Category II) authorization for Merchant Acquiring Services, Account Issuing, Payment Aggregation Services, Domestic Fund Transfer Services, and Cross-Border Remittances, as well as Stored Value Facilities (SVF) authorization for Opening &amp; Maintaining Digital Wallets and Payment Aggregator – Online (PA-O) services. Services are provided in accordance with applicable UAE laws, regulations, and regulatory requirements.</p>
+        <div class="office">
+          <address id="cOffice">1004, 10th Floor, U-Bora Tower, Business Bay, Dubai, United Arab Emirates<br><a href="mailto:info@pay10.ae">info@pay10.ae</a></address>
+          <a class="btn btn--line" id="cSite" href="https://pay10.ae/">Visit pay10.ae</a>
+        </div>
+      </div>
+    </article>
+    <div class="network" role="group" aria-label="Choose a market">
+      <button type="button" data-mkt="in" aria-pressed="false"><b>India</b><span>RBI</span></button>
+      <button type="button" data-mkt="ae" aria-pressed="true"><b>UAE</b><span>CBUAE</span></button>
+      <button type="button" data-mkt="bh" aria-pressed="false"><b>Bahrain</b><span>CBB</span></button>
+      <button type="button" data-mkt="ma" aria-pressed="false"><b>Morocco</b><span>Bank Al-Maghrib</span></button>
+      <button type="button" data-mkt="eu" aria-pressed="false"><b>Hungary (EU)</b><span>MNB</span></button>
+    </div>
+  </section>
+
+  <!-- 4. Assurance -->
+  <section class="sec wrap" id="security" aria-labelledby="se-h">
+    <div class="sec-head">
+      <h2 id="se-h">World’s most rigorous security</h2>
+      <p>The standards every regional entity is held to, and some of the businesses that run on them.</p>
+    </div>
+    <div class="assure">
+      <div class="txt">
+        <p class="big">Across every market, Pay10’s regional entities run on regulated infrastructure certified to the world’s most rigorous standards.</p>
+        <p>So every transaction, every user, and every business stays secure by default.</p>
+      </div>
+      <ul class="std">
+        <li><div class="badge"><img src="../assets/cert-pci-dss.png" alt="" width="94" height="94" loading="lazy"></div><span>PCI DSS Level 1</span></li>
+        <li><div class="badge"><img src="../assets/cert-soc2.png" alt="" width="94" height="94" loading="lazy"></div><span>SOC 2 Type II</span></li>
+        <li><div class="badge"><img src="../assets/cert-iso-27001.png" alt="" width="94" height="94" loading="lazy"></div><span>ISO 27001:2013</span></li>
+        <li><div class="badge"><img src="../assets/cert-iso-9001.png" alt="" width="94" height="94" loading="lazy"></div><span>ISO 9001:2015</span></li>
+        <li class="also">Also CERT-In SAR compliant (PAPG &amp; Data Localization).</li>
+      </ul>
+    </div>
+    <h3 class="clients-h">Trusted by businesses like yours</h3>
+    <ul class="clients">
+      <li><img src="../assets/client-allday.png" alt="allday" style="height:52px" width="132" height="52" loading="lazy"></li>
+      <li><img src="../assets/client-justgold.svg" alt="Just Gold" style="height:44px" width="119" height="44" loading="lazy"></li>
+      <li><img src="../assets/client-irctc.png" alt="IRCTC" style="height:44px" width="141" height="44" loading="lazy"></li>
+      <li><img src="../assets/client-blackbuck.png" alt="BlackBuck" style="height:42px" width="126" height="42" loading="lazy"></li>
+      <li><img src="../assets/client-country-delight.png" alt="Country Delight" style="height:74px" width="148" height="74" loading="lazy"></li>
+      <li><img src="../assets/client-malabar.png" alt="Malabar Gold &amp; Diamonds" style="height:62px" width="124" height="62" loading="lazy"></li>
+    </ul>
+  </section>
+
+  <!-- 5. The record -->
+  <section class="sec wrap" id="record" aria-labelledby="re-h">
+    <div class="sec-head">
+      <h2 id="re-h">The record, 2017 to 2026</h2>
+      <p>Most payments companies do one thing, in one place. Pay10 Global does the whole of payments, everywhere it’s licensed.</p>
+    </div>
+    <div class="record">
+      <div class="side">
+        <figure class="vision"><blockquote class="big">To deliver reliable, regulated payment infrastructure that enables seamless transactions, strengthens trust, and supports sustainable growth across global payment ecosystems.</blockquote><figcaption>Pay10’s vision</figcaption></figure>
+        <p>For banks, payment institutions, and merchants, one partnership opens access to multiple regulated markets, every payment capability, and the scale to grow, without building any of it.</p>
+        <div class="board">
+          <h3>Board</h3>
+          <ul>
+            <li><img src="../assets/team-harry-gill.jpg" alt="" width="56" height="56" loading="lazy"><div><b>Harry Gill</b><span>Founder and Chairman</span></div></li>
+            <li><img src="../assets/team-saad-kaleem.jpg" alt="" width="56" height="56" loading="lazy"><div><b>Saad Kaleem</b><span>Global CEO</span></div></li>
+          </ul>
+        </div>
+        <p class="co-links"><a href="#">About us</a><a href="#">Vision &amp; mission</a><a href="#">Careers</a></p>
+      </div>
+      <ol class="years">
+        <li><b>2017</b><p>Pay10 was founded in India, focusing on secure online payment solutions for businesses.</p></li>
+        <li><b>2018</b><p>Launched its first suite of products, giving businesses integrated digital payment solutions.</p></li>
+        <li><b>2019</b><p>Worked with high-profile enterprise clients, including Indian Railways and ICICI Lombard.</p></li>
+        <li><b>2020</b><p>Went live with 100+ payment options, payouts and automated settlement.</p></li>
+        <li><b>2021</b><p>Expanded operations with mPOS and multiple modes of payment.</p></li>
+        <li><b>2023</b><p>Opened a new headquarters in Dubai, UAE, to expand globally.</p></li>
+        <li><b>2024</b><p>Digital wallet solutions focused on domestic payment schemes and local payment methods.</p>
+          <ul><li>SVF and RPSCS licences from the Central Bank of the UAE</li><li>Payment Aggregator Cross Border licence from the Reserve Bank of India</li></ul></li>
+        <li><b>2025</b><p>Expanded the product suite to key markets in the Middle East, Africa, Asia and Europe.</p>
+          <ul><li>Open Finance Payment Initiation approval from the Central Bank of the UAE</li><li>Payment Services Licence from the Central Bank of Bahrain</li><li>Payment Institution Licence approval from Bank Al-Maghrib</li></ul></li>
+        <li><b>2026</b><p>Entered the European Union through Pay10 EU Kft’s Electronic Money Institution licence, granted by the National Bank of Hungary.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 6. Insights -->
+  <section class="sec wrap" id="insights" aria-labelledby="in-h">
+    <div class="sec-head">
+      <h2 id="in-h">Insights</h2>
+      <p>News, events and guides from across the Pay10 network.</p>
+    </div>
+    <ol class="ledger">
+      <li>
+        <div class="meta"><time datetime="2026-06-26">26 Jun 2026</time><span class="ty">News</span></div>
+        <div class="body"><h3><a href="https://pay10.com/news/pay10-and-first-abu-dhabi-bank-announce-open-finance/">Pay10 and First Abu Dhabi Bank announce Open Finance</a></h3><p>FAB has gone live on Open Finance for its retail customers in the UAE, a key milestone in the UAE’s Open Finance journey.</p></div>
+        <img src="../assets/post-pay10-and-first-abu-dhabi-bank-announce-open-finance.jpg" alt="" width="200" height="113" loading="lazy" decoding="async">
+      </li>
+      <li>
+        <div class="meta"><time datetime="2026-06-26">26 Jun 2026</time><span class="ty">News</span></div>
+        <div class="body"><h3><a href="https://pay10.com/news/pay10-and-cbd-launch-open-finance/">Pay10 and CBD launch Open Finance</a></h3><p>Pay10 and Commercial Bank of Dubai go live with Open Finance services under the UAE’s Open Finance Initiative, AlTareq.</p></div>
+        <img src="../assets/post-pay10-and-cbd-launch-open-finance.jpg" alt="" width="200" height="113" loading="lazy" decoding="async">
+      </li>
+      <li>
+        <div class="meta"><time datetime="2026-05-20">20 May 2026</time><span class="ty">Blog</span></div>
+        <div class="body"><h3><a href="https://pay10.com/how-pay10-simplifies-international-payments-for-indian-merchants/">How Pay10 simplifies international payments for Indian merchants</a></h3><p>Indian businesses are expanding globally, from digital services and SaaS products to physical products and consulting.</p></div>
+        <img src="../assets/post-how-pay10-simplifies-international-payments-for-indian-merchants.jpg" alt="" width="200" height="113" loading="lazy" decoding="async">
+      </li>
+      <li>
+        <div class="meta"><time datetime="2025-11-12">12 Nov 2025</time><span class="ty">Event</span></div>
+        <div class="body"><h3><a href="https://pay10.com/events/singapore-fintech-festival-2025/">Singapore FinTech Festival 2025</a></h3><p>Pay10 brought its vision for a connected, interoperable global payments ecosystem to the world stage in Singapore.</p></div>
+        <img src="../assets/post-singapore-fintech-festival-2025.jpg" alt="" width="200" height="113" loading="lazy" decoding="async">
+      </li>
+    </ol>
+    <p class="more-row"><a href="#">News</a><a href="#">Events</a><a href="#">Blogs</a><a href="#">Thought leadership</a></p>
+  </section>
+</main>
+
+<footer class="close" id="contact">
+  <div class="wrap">
+    <div class="cta">
+      <div class="cta-l">
+        <h2>Why Pay, When You Can Pay10</h2>
+        <p class="lede">Move money with confidence, clarity, and speed, wherever you are.</p>
+      </div>
+      <div class="contacts">
+        <div><h3>Global sales</h3><p><a href="mailto:globalsales@pay10.com">globalsales@pay10.com</a></p></div>
+        <div><h3 id="oName">Pay10 UAE</h3><p id="oMail"><a href="mailto:info@pay10.ae">info@pay10.ae</a></p></div>
+        <div><h3>Headquarters</h3><p>1001, 10th Floor, U-Bora Tower, Business Bay, Dubai</p></div>
+        <a class="btn btn--yellow" href="https://pay10.com/contact-us/">Contact our team</a>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="brand">
+        <img src="../assets/logo-on-dark.png" alt="Pay10" width="85" height="52" loading="lazy">
+        <address>Pay Ten Global Technology LLC<br>1001, 10th Floor, U-Bora Tower, Business Bay, Dubai, United Arab Emirates</address>
+      </div>
+      <nav aria-label="Footer">
+        <div><h3>Company</h3><ul><li><a href="#">About Us</a></li><li><a href="#">Vision &amp; Mission</a></li><li><a href="#">Careers</a></li><li><a href="https://pay10.com/contact-us/">Contact Us</a></li></ul></div>
+        <div><h3>Products</h3><ul><li><a href="#">Consumer App</a></li><li><a href="#">International Transfers</a></li><li><a href="#">Merchant App</a></li><li><a href="#">Merchant Portal</a></li><li><a href="#">Payment Gateway</a></li><li><a href="#">Payment Devices</a></li><li><a href="#">Pay10 World</a></li></ul></div>
+        <div><h3>Solutions</h3><ul><li><a href="#">Small &amp; Medium Businesses</a></li><li><a href="#">Large Enterprises</a></li><li><a href="#">Digital Assets</a></li><li><a href="#">Multinational Companies</a></li></ul></div>
+        <div><h3>Platform</h3><ul><li><a href="#">Pay with Pay10</a></li><li><a href="#">Pay by Bank</a></li><li><a href="#">QR Payments</a></li><li><a href="#">Payment Links</a></li><li><a href="#">Integration Methods</a></li></ul></div>
+        <div><h3>Markets</h3><ul><li><a href="https://www.pay10.in/">India</a></li><li><a href="https://pay10.ae/">UAE</a></li><li><a href="https://pay10.bh/">Bahrain</a></li><li><a href="https://pay10.ma/">Morocco</a></li></ul></div>
+        <div><h3>Insights</h3><ul><li><a href="#">Thought Leadership</a></li><li><a href="#">News</a></li><li><a href="#">Events</a></li><li><a href="#">Blogs</a></li></ul></div>
+      </nav>
+      <div class="disclose">
+        <p>Pay10 Global’s regional entities are licensed and regulated by the Reserve Bank of India, the Central Bank of the UAE, the Central Bank of Bahrain, Bank Al-Maghrib and Magyar Nemzeti Bank.</p>
+        <p>Pay10 Services Private Limited (“Pay10 India”) is authorized and regulated by the Reserve Bank of India (“RBI”) as a Payment Aggregator – Online (PA-O), Payment Aggregator – Cross Border, Import &amp; Export (PA-CB I&amp;E), and Prepaid Payment Instrument Issuer (APM, POS). Services are provided in accordance with applicable laws, regulations, circulars, and directions issued by the Reserve Bank of India and other competent authorities.</p>
+        <p>PAY TEN PAYMENT SERVICES PROVIDER L.L.C (“Pay10 UAE”) is licensed and regulated by the Central Bank of the UAE (“CBUAE”) and holds an Open Finance Licence (APM, POS), Retail Payment Services (RPS – Category II) authorization for Merchant Acquiring Services, Account Issuing, Payment Aggregation Services, Domestic Fund Transfer Services, and Cross-Border Remittances, as well as Stored Value Facilities (SVF) authorization for Opening &amp; Maintaining Digital Wallets and Payment Aggregator – Online (PA-O) services. Services are provided in accordance with applicable UAE laws, regulations, and regulatory requirements.</p>
+        <p>PAY TEN B.S.C CLOSED (“Pay10 Bahrain”) is licensed and regulated by the Central Bank of Bahrain (“CBB”) as a Type 7 Ancillary Business Provider – Payment Services Provider Licence (APM, POS). Services are provided in accordance with applicable laws, regulations, and directives issued by the Central Bank of Bahrain.</p>
+        <p>PAY TEN MAR (“Pay10 Morocco”) is licensed and regulated by Bank Al-Maghrib (“BAM”) as a Payment Institution Licence (APM, POS) holder. Services are provided in accordance with applicable Moroccan laws, regulations, and supervisory requirements.</p>
+      </div>
+      <div class="legal">
+        <p>© 2026 | Pay Ten Global Technology LLC</p>
+        <ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Cookie Policy</a></li><li><a href="https://www.linkedin.com/company/pay-10/">LinkedIn</a></li></ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="dock" id="dock" aria-hidden="true">
+  <div class="wrap">
+    <div><p class="l">You keep per year<span class="ex">, at your settings</span></p><p class="v"><small class="cc">AED</small> <span id="dockVal">222,000</span></p></div>
+    <div class="sp"><a class="adj" href="#calculator" tabindex="-1">Adjust</a><a class="btn btn--yellow" href="#contact" tabindex="-1">Talk to us</a></div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+
+  /* ---------- market data (content.json → markets, products.availableIn) ---------- */
+  const MKT = {
+    in: { short:'India', the:'India', name:'Pay10 India', entity:'Pay10 Services Private Limited', reg:'Reserve Bank of India', regS:'RBI',
+      lic:['PA-O','PA-CB I&E'], ccy:'INR', site:'https://www.pay10.in/', siteT:'pay10.in',
+      hist:[['2017','Founded in India'],['2024','Payment Aggregator Cross Border license from the Reserve Bank of India']],
+      office:'Property Bearing No. 4, First Floor, Ring Road, Lajpat Nagar-IV, New Delhi-110024', mail:'info@pay10.in',
+      disc:'Pay10 Services Private Limited (“Pay10 India”) is authorized and regulated by the Reserve Bank of India (“RBI”) as a Payment Aggregator – Online (PA-O), Payment Aggregator – Cross Border, Import & Export (PA-CB I&E), and Prepaid Payment Instrument Issuer (APM, POS). Services are provided in accordance with applicable laws, regulations, circulars, and directions issued by the Reserve Bank of India and other competent authorities.' },
+    ae: { short:'UAE', the:'the UAE', name:'Pay10 UAE', entity:'Pay Ten Payment Services Provider L.L.C', reg:'Central Bank of the UAE', regS:'CBUAE',
+      lic:['Open Finance','RPS – Cat II','SVF'], ccy:'AED', site:'https://pay10.ae/', siteT:'pay10.ae',
+      hist:[['2023','Headquarters opened in Dubai'],['2024','SVF and RPSCS licenses from the Central Bank of the UAE'],['2025','Open Finance Payment Initiation approval from the Central Bank of the UAE']],
+      office:'1004, 10th Floor, U-Bora Tower, Business Bay, Dubai, United Arab Emirates', mail:'info@pay10.ae',
+      disc:'PAY TEN PAYMENT SERVICES PROVIDER L.L.C (“Pay10 UAE”) is licensed and regulated by the Central Bank of the UAE (“CBUAE”) and holds an Open Finance Licence (APM, POS), Retail Payment Services (RPS – Category II) authorization for Merchant Acquiring Services, Account Issuing, Payment Aggregation Services, Domestic Fund Transfer Services, and Cross-Border Remittances, as well as Stored Value Facilities (SVF) authorization for Opening & Maintaining Digital Wallets and Payment Aggregator – Online (PA-O) services. Services are provided in accordance with applicable UAE laws, regulations, and regulatory requirements.' },
+    bh: { short:'Bahrain', the:'Bahrain', name:'Pay10 Bahrain', entity:'Pay Ten B.S.C Closed', reg:'Central Bank of Bahrain', regS:'CBB',
+      lic:['Type 7 ABP'], ccy:null, site:'https://pay10.bh/', siteT:'pay10.bh',
+      hist:[['2025','Payment Services License from the Central Bank of Bahrain']],
+      office:'Unit 22B, 22nd Floor, Harbour Tower East, Bahrain Financial Harbour, King Faisal Highway, Manama, Kingdom of Bahrain', mail:'info@pay10.bh',
+      disc:'PAY TEN B.S.C CLOSED (“Pay10 Bahrain”) is licensed and regulated by the Central Bank of Bahrain (“CBB”) as a Type 7 Ancillary Business Provider – Payment Services Provider Licence (APM, POS). Services are provided in accordance with applicable laws, regulations, and directives issued by the Central Bank of Bahrain.' },
+    ma: { short:'Morocco', the:'Morocco', name:'Pay10 Morocco', entity:'Pay Ten MAR', reg:'Bank Al-Maghrib', regS:'BAM',
+      lic:['Payment Institution'], ccy:null, site:'https://pay10.ma/', siteT:'pay10.ma',
+      hist:[['2025','Payment Institution License approval from Bank Al-Maghrib']],
+      office:'Casa Business Towers, Avenue Mainstreet, 1st floor, Office nº 31/32, Casablanca Finance City, Morocco', mail:'info@pay10.ma',
+      disc:'PAY TEN MAR (“Pay10 Morocco”) is licensed and regulated by Bank Al-Maghrib (“BAM”) as a Payment Institution Licence (APM, POS) holder. Services are provided in accordance with applicable Moroccan laws, regulations, and supervisory requirements.' },
+    eu: { short:'Hungary (EU)', the:'the EU', name:'Pay10 EU', entity:'Pay10 EU Kft', reg:'Magyar Nemzeti Bank', regS:'MNB',
+      lic:['Electronic Money Institution'], ccy:'EUR', site:null,
+      hist:[['2026','EU entry through Pay10 EU Kft’s Electronic Money Institution (EMI) license granted by the National Bank of Hungary']],
+      office:'1082 Budapest, Futó utca 37-45', mail:'info@pay10.eu', disc:null }
+  };
+  const ORDER = ['in','ae','bh','ma','eu'], CODES = {in:'IN',ae:'AE',bh:'BH',ma:'MA',eu:'EU'};
+
+  /* ---------- calculator spec (content.json → home.calculator) ---------- */
+  const CFG = { volumes:[1e6,5e6,1e7,2e7,5e7,1e8], labels:['1M','5M','10M','20M','50M','100M'],
+    words:['1 million','5 million','10 million','20 million','50 million','100 million'], rate:0.65 };
+  const vol=$('vol'), share=$('share'), mdr=$('mdr'), shareNum=$('shareNum'), mdrNum=$('mdrNum');
+  let ccy='AED';
+  const fmt = (n) => new Intl.NumberFormat(ccy==='INR'?'en-IN':'en-US',{maximumFractionDigits:0}).format(Math.round(n));
+  const pos = (v,a,b) => (v-a)/(b-a)*100;
+
+  function compute(volume, sh, m){
+    const p10Vol = volume*sh/100;
+    const currentFee = p10Vol*m/100;
+    const pay10Fee = p10Vol*0.65/100;
+    const monthlySaving = Math.max(currentFee-pay10Fee,0);
+    const yearlySaving = monthlySaving*12;
+    const pct = Math.round(monthlySaving/currentFee*100);
+    return {p10Vol,currentFee,pay10Fee,monthlySaving,yearlySaving,pct};
+  }
+  window.__pay10Compute = compute; // exposed for verification
+
+  // engraved scales
+  const tick = (id, ps, maj) => { document.querySelector('#'+id+' [data-ticks]').innerHTML = ps.map((p,i)=>`<i class="${maj(i)?'maj':''}" style="left:${p}%"></i>`).join(''); };
+  const legend = (id, items) => { $(id).innerHTML = items.map(([p,t,c])=>`<span class="${c||''}" style="left:${p}%">${t}</span>`).join(''); };
+  tick('sc-vol',[0,20,40,60,80,100],()=>true);
+  legend('volLegend', CFG.labels.map((l,i)=>[i*20,l,i===0?'l':i===5?'r':'']));
+  { const p=[]; for(let v=0;v<=100;v+=5) p.push(pos(Math.max(v,1),1,100));
+    tick('sc-share',p,(i)=>(i*5)%25===0);
+    legend('shareLegend',[[0,'1%','l'],[pos(25,1,100),'25'],[pos(50,1,100),'50'],[pos(75,1,100),'75'],[100,'100%','r']]); }
+  { const p=[]; for(let k=5;k<=40;k++) p.push(pos(k/10,.5,4));
+    tick('sc-mdr',p,(i)=>i%5===0);
+    legend('mdrLegend',[.5,1,1.5,2,2.5,3,3.5,4].map((v,i,a)=>[pos(v,.5,4), v.toFixed(1)+(i===a.length-1?'%':''), (i===0?'l':i===a.length-1?'r':'')+(v%1?' minor':'')])); }
+
+  let liveT;
+  function render(){
+    const vi=+vol.value, sh=+share.value, m=+mdr.value;
+    const r = compute(CFG.volumes[vi], sh, m);
+    document.querySelectorAll('.cc').forEach(el=>el.textContent=ccy);
+    $('volTxt').textContent = CFG.labels[vi];
+    vol.setAttribute('aria-valuetext', `${ccy} ${CFG.words[vi]}`);
+    share.setAttribute('aria-valuetext', `${sh} percent`);
+    mdr.setAttribute('aria-valuetext', `${m.toFixed(2)} percent`);
+    if (document.activeElement!==shareNum) shareNum.value = sh;
+    if (document.activeElement!==mdrNum) mdrNum.value = m.toFixed(2);
+    $('volFill').style.width = (vi*20)+'%';
+    $('shareFill').style.width = pos(sh,1,100)+'%';
+    const a=pos(CFG.rate,.5,4), b=pos(m,.5,4);
+    $('mdrFill').style.left = a+'%'; $('mdrFill').style.width = Math.max(b-a,0)+'%';
+    [...$('volLegend').children].forEach((s,i)=>s.classList.toggle('on',i===vi));
+    $('yearly').textContent = fmt(r.yearlySaving);
+    $('dockVal').textContent = fmt(r.yearlySaving);
+    $('lbVol').textContent = `Volume on Pay10 (${sh}%)`;
+    $('lbFee').textContent = `Your fee (${m.toFixed(2)}%)`;
+    $('rVol').textContent = fmt(r.p10Vol);
+    $('rFee').textContent = fmt(r.currentFee);
+    $('rP10').textContent = `(${fmt(r.pay10Fee)})`;
+    $('rMon').textContent = fmt(r.monthlySaving);
+    $('rYear').textContent = fmt(r.yearlySaving);
+    $('pctBar').style.width = r.pct+'%';
+    $('pctTxt').textContent = r.monthlySaving>0 ? `${r.pct}% lower than your current cost` : 'No saving at this rate. Ask us for a quote.';
+    clearTimeout(liveT);
+    liveT = setTimeout(()=>{ $('live').textContent = `You keep ${ccy} ${fmt(r.yearlySaving)} a year, ${r.pct}% lower than your current cost.`; }, 700);
+  }
+
+  /* ---------- market: one setting, the whole page follows ---------- */
+  function setMarket(k){
+    const M = MKT[k];
+    $('mktSelect').value = k;
+    document.querySelectorAll('input[name=mkt]').forEach(i=>i.checked = i.value===k);
+    document.querySelectorAll('.network button').forEach(b=>b.setAttribute('aria-pressed', b.dataset.mkt===k));
+    document.querySelectorAll('.mk-name').forEach(el=>el.textContent = M.the);
+    if (M.ccy){ ccy = M.ccy; document.querySelectorAll('input[name=ccy]').forEach(i=>i.checked = i.value===ccy); }
+    document.querySelectorAll('.job').forEach(j=>{
+      const av = j.dataset.avail.split(' '), xb = av[0]==='xb';
+      j.querySelector('.avail').innerHTML = ORDER.map(c=>{
+        const st = xb ? 'x' : (av.includes(c)?'y':'n');
+        return `<span class="${st}${c===k?' sel':''}">${CODES[c]}<i></i></span>`;
+      }).join('');
+      const s = j.querySelector('.status');
+      if (xb){ s.textContent = 'Cross-border collections'; s.className='status'; }
+      else if (av.includes(k)){ s.textContent = `Live in ${M.the}`; s.className='status'; }
+      else { s.textContent = `Not yet listed in ${M.the}`; s.className='status no'; }
+    });
+    $('cName').textContent = M.name;
+    $('cEntity').textContent = M.entity;
+    $('cReg').innerHTML = `<b>${M.reg}</b> (${M.regS})`;
+    $('cLic').innerHTML = M.lic.map(l=>`<li>${l.replace('&','&amp;')}</li>`).join('');
+    $('cHist').innerHTML = M.hist.map(([y,t])=>`<li><b>${y}</b><span>${t}</span></li>`).join('');
+    const d = $('cDisc');
+    if (M.disc){ d.textContent = M.disc; d.classList.remove('none'); }
+    else { d.textContent = 'Pay10 EU Kft holds an Electronic Money Institution (EMI) licence granted by the National Bank of Hungary in 2026, Pay10’s entry into the European Union.'; d.classList.add('none'); }
+    $('cOffice').innerHTML = `${M.office}<br><a href="mailto:${M.mail}">${M.mail}</a>`;
+    const site = $('cSite');
+    if (M.site){ site.hidden=false; site.href=M.site; site.textContent=`Visit ${M.siteT}`; } else site.hidden = true;
+    $('oName').textContent = M.name;
+    $('oMail').innerHTML = `<a href="mailto:${M.mail}">${M.mail}</a>`;
+    render();
+  }
+
+  [vol,share,mdr].forEach(el=>el.addEventListener('input',()=>{ stopSweep(); render(); }));
+  document.querySelectorAll('input[name=ccy]').forEach(el=>el.addEventListener('change',()=>{ ccy=el.value; render(); }));
+  document.querySelectorAll('input[name=mkt]').forEach(el=>el.addEventListener('change',()=>setMarket(el.value)));
+  $('mktSelect').addEventListener('change',(e)=>setMarket(e.target.value));
+  document.querySelectorAll('.network button').forEach(b=>b.addEventListener('click',()=>setMarket(b.dataset.mkt)));
+  function bindNum(num, range, min, max, dec){
+    const apply = (final)=>{
+      let v = parseFloat(num.value);
+      if (isNaN(v)){ if(final) num.value=(+range.value).toFixed(dec); return; }
+      v = Math.min(max, Math.max(min, v)); range.value = v; stopSweep(); render();
+      if (final) num.value = (+range.value).toFixed(dec);
+    };
+    num.addEventListener('input',()=>apply(false));
+    num.addEventListener('change',()=>apply(true));
+  }
+  bindNum(shareNum, share, 1, 100, 0);
+  bindNum(mdrNum, mdr, .5, 4, 2);
+
+  /* ---------- one orchestrated moment: the instrument calibrates on load ---------- */
+  let raf=0, sweeping=false;
+  function stopSweep(){ if(sweeping){ cancelAnimationFrame(raf); sweeping=false; } }
+  setMarket('ae');
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    const D=1300, t0=performance.now()+250, ease=(t)=>1-Math.pow(1-t,3);
+    vol.value=0; share.value=1; mdr.value=1; render(); sweeping=true;
+    const step=(now)=>{
+      if(!sweeping) return;
+      const t=Math.min(1,Math.max(0,(now-t0)/D)), e=ease(t);
+      vol.value=Math.round(e*2); share.value=Math.round(1+e*9); mdr.value=(1+e*1.5).toFixed(2); render();
+      if(t<1) raf=requestAnimationFrame(step); else sweeping=false;
+    };
+    raf=requestAnimationFrame(step);
+  }
+
+  /* ---------- the readout follows you down the page ---------- */
+  const dock=$('dock'); let instVis=true, contactVis=false;
+  const upd=()=>{ const on=!instVis && !contactVis; dock.classList.toggle('on',on); dock.setAttribute('aria-hidden',String(!on)); dock.querySelectorAll('a').forEach(a=>a.tabIndex=on?0:-1); };
+  new IntersectionObserver(([e])=>{ instVis=e.isIntersecting; upd(); }).observe($('calculator'));
+  new IntersectionObserver(([e])=>{ contactVis=e.isIntersecting; upd(); }).observe($('contact'));
+
+  /* ---------- mobile menu ---------- */
+  const mb=document.querySelector('.menu-btn'), nav=$('nav');
+  const closeNav=()=>{ nav.classList.remove('is-open'); mb.setAttribute('aria-expanded','false'); mb.textContent='Menu'; };
+  mb.addEventListener('click',()=>{ const o=nav.classList.toggle('is-open'); mb.setAttribute('aria-expanded',String(o)); mb.textContent=o?'Close':'Menu'; });
+  nav.addEventListener('click',(e)=>{ if(e.target.closest('a')) closeNav(); });
+  document.addEventListener('keydown',(e)=>{ if(e.key==='Escape'&&nav.classList.contains('is-open')){ closeNav(); mb.focus(); } });
+})();
+</script>
+</body>
+</html>
